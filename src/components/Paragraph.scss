@@ -1,0 +1,41 @@
+.paragraph-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  h2 {
+    align-self: flex-start;
+    text-align: left;
+    margin-top: 0;
+  }
+  
+  img {
+    align-self: flex-start;
+    margin-bottom: 25px;
+  }
+}
+
+.paragraph p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+// From medium screen widths, we can display the title and image on the same line
+@media only screen and (min-width: $screen-width-xs) {
+  .paragraph-header {
+    flex-direction: row;
+    
+    img {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// Don't hyphenate on larger screens
+@media only screen and (min-width: $screen-width-m) {
+  .paragraph p {
+    hyphens: none;
+  }
+}

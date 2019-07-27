@@ -1,0 +1,41 @@
+.social-button {
+  display: inline-block;
+  margin: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: none;
+  background: $primary-colour-light;
+  text-decoration: none;
+  color: $primary-text-colour;
+  white-space: nowrap;
+  
+  &:focus {
+    animation: wave 0.2s ease-in;
+  }
+  
+  &:hover i {
+    color: #7e228e;
+    transition: all 0.2s ease;
+  }
+  
+  i {
+    margin-right: 6px;
+  }
+}
+
+// Button click animation
+@keyframes wave {
+  0% {
+    box-shadow: 0 0 0 0 rgba($primary-colour, 0.33);
+  }
+
+  50% {
+    box-shadow: 0 0 0 3px rgba($primary-colour, 0.33);
+  }
+
+  100% {
+    box-shadow: 0 0 0 4px rgba($primary-colour, 0);
+  }
+}
