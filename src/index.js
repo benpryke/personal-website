@@ -6,7 +6,13 @@ import * as serviceWorker from './serviceWorker';
 
 import './index.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rootElement = document.getElementById("root");
+
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrate(<App />, rootElement);
+} else {
+  ReactDOM.render(<App />, rootElement);
+}
 
 // TODO this is likely not useful right now, but may become so
 serviceWorker.unregister();

@@ -21,6 +21,8 @@ export default class Banner extends React.Component {
       this.ref = React.createRef();
       this.triggerFadeIn = this.triggerFadeIn.bind(this);
       this.scrollHandler = document.addEventListener('scroll', this.triggerFadeIn);
+    } else {
+      this.state.fadedIn = true;
     }
   }
   
@@ -50,22 +52,16 @@ export default class Banner extends React.Component {
   }
 
   render() {
-    const { className, children, fadeIn } = this.props;
+    const { className, children, fadeIn, style } = this.props;
     const { fadedIn } = this.state;
-    let { style } = this.props;
-
-    // If `fadeIn` is true, we start invisible
-    if (fadeIn && !fadedIn) {
-      style = style || {};
-      style['opacity'] = 0;
-    }
 
     return (
       <section
         ref={this.ref}
         className={classNames('banner', {
           [className]: className,
-          'faded-in': fadedIn,
+          'faded-out': !fadedIn,
+          'faded-in': fadeIn && fadedIn,
         })}
         style={style}
       >
