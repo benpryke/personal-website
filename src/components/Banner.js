@@ -12,6 +12,7 @@ export default class Banner extends React.Component {
   
   state = {
     fadedIn: false,
+    fadedOut: false,
   };
 
   constructor(props) {
@@ -48,19 +49,21 @@ export default class Banner extends React.Component {
     if (fadedIn) {
       document.removeEventListener('scroll', this.scrollHandler);
       this.setState({ fadedIn });
+    } else if (!this.state.fadedOut && window.scrollY > 0) {
+      this.setState({ fadedOut: true });
     }
   }
 
   render() {
     const { className, children, fadeIn, style } = this.props;
-    const { fadedIn } = this.state;
+    const { fadedIn, fadedOut } = this.state;
 
     return (
       <section
         ref={this.ref}
         className={classNames('banner', {
           [className]: className,
-          'faded-out': !fadedIn,
+          'faded-out': fadedOut && !fadedIn,
           'faded-in': fadeIn && fadedIn,
         })}
         style={style}
