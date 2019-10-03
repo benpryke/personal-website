@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Banner, { BannerPassthroughProps } from './Banner';
-import Showpiece from './Showpiece';
 
 interface ShowcaseProps extends BannerPassthroughProps {
   /** Heading */

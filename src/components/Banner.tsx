@@ -17,9 +17,6 @@ interface BannerProps {
   children?: React.ReactNode;
 }
 
-type DefaultBannerProps = keyof typeof Banner.defaultProps;
-export type BannerPassthroughProps = Partial<Pick<BannerProps, DefaultBannerProps>> & Omit<BannerProps, DefaultBannerProps>;
-
 interface BannerState {
   fadedIn: boolean,
   fadedOut: boolean,
@@ -99,3 +96,6 @@ export default class Banner extends React.Component<BannerProps, BannerState> {
     );
   }
 }
+
+type DefaultBannerProps = keyof typeof Banner.defaultProps;
+export type BannerPassthroughProps = Partial<Pick<BannerProps, DefaultBannerProps>> & Omit<BannerProps, DefaultBannerProps>;
