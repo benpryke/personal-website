@@ -1,9 +1,18 @@
 import React from 'react';
 
+interface SocialButtonProps {
+  /** Name of the social network */
+  name: string,
+  /** URL to link to */
+  url: string,
+  /** FontAwesome icon class name */
+  icon: string,
+}
+
 /**
  * A link to social media
  */
-export default class SocialButton extends React.Component {
+export default class SocialButton extends React.Component<SocialButtonProps> {
   render() {
     const { name, url, icon } = this.props;
 
