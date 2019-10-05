@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph should match the snapshot 1`] = `
+<section
+  className="banner paragraph"
+>
+  <div
+    className="paragraph-header"
+  >
+    <h2>
+      title
+    </h2>
+    <img
+      alt="title"
+      src="imgSrc"
+    />
+  </div>
+  <p>
+    body
+  </p>
+</section>
+`;

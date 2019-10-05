@@ -2,7 +2,7 @@ import React from 'react';
 
 import Banner, { BannerPassthroughProps } from './Banner';
 
-interface LogosProps extends BannerPassthroughProps{
+export interface LogosProps extends BannerPassthroughProps{
   /** Heading */
   title: string,
   /** Logos */

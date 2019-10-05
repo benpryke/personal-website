@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ShowpieceProps {
+export interface ShowpieceProps {
   /** Heading to display */
   title: string,
   /** URL for the thumbnail image */

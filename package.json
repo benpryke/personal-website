@@ -5,12 +5,12 @@
   "private": true,
   "dependencies": {
     "@types/classnames": "^2.2.9",
-    "@types/node": "^12.7.8",
-    "@types/react": "^16.9.3",
+    "@types/node": "^12.7.11",
+    "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
     "classnames": "^2.2.6",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "typescript": "^3.6.3"
   },
   "scripts": {
@@ -32,10 +32,17 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.18",
-    "gh-pages": "^2.0.1",
+    "@types/react-test-renderer": "^16.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
-    "react-scripts": "^3.0.1",
-    "react-snap": "^1.23.0"
+    "react-scripts": "^3.2.0",
+    "react-snap": "^1.23.0",
+    "react-test-renderer": "^16.10.2",
+    "ts-jest": "^24.1.0"
   }
 }

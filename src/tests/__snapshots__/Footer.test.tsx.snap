@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should match the snapshot 1`] = `
+<section
+  className="banner cls"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+>
+  <h2>
+    Get in touch
+  </h2>
+  <footer>
+    <a
+      className="social-button"
+      href="https://linkedin.com/in/benjaminpryke"
+    >
+      <i
+        className="fab fa-linkedin"
+      />
+      LinkedIn
+    </a>
+    <a
+      className="social-button"
+      href="https://twitter.com/BenjaminPryke"
+    >
+      <i
+        className="fab fa-twitter"
+      />
+      Twitter
+    </a>
+    <a
+      className="social-button"
+      href="https://github.com/benpryke"
+    >
+      <i
+        className="fab fa-github"
+      />
+      GitHub
+    </a>
+    <a
+      className="social-button"
+      href="https://stackoverflow.com/users/604687/ninjakannon"
+    >
+      <i
+        className="fab fa-stack-overflow"
+      />
+      Stack Overflow
+    </a>
+    <a
+      className="social-button"
+      href="https://www.instagram.com/gym_ninja_ben"
+    >
+      <i
+        className="fab fa-instagram"
+      />
+      Instagram
+    </a>
+  </footer>
+</section>
+`;

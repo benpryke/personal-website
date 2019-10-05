@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface LogoProps {
+export interface LogoProps {
   /** Name of the organisation or entity */
   name: string,
   /** Logo URL */

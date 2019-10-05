@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero should match the snapshot 1`] = `
+<section
+  className="banner cls"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+>
+  <div
+    className="hero-content"
+    style={
+      Object {
+        "maxHeight": 500,
+      }
+    }
+  >
+    <img
+      alt="name"
+      src="url"
+      style={
+        Object {
+          "height": 400,
+          "width": 400,
+        }
+      }
+    />
+    <div
+      className="conversation"
+    >
+      <div
+        className="greeting speech-bubble"
+      >
+        <h1>
+          Hi, I'm 
+          name
+        </h1>
+      </div>
+      <div
+        className="action speech-bubble"
+      >
+        <a
+          className="social-button"
+          href="https://linkedin.com/in/benjaminpryke"
+        >
+          <i
+            className="fab fa-linkedin"
+          />
+          LinkedIn
+        </a>
+        <a
+          className="social-button"
+          href="https://twitter.com/BenjaminPryke"
+        >
+          <i
+            className="fab fa-twitter"
+          />
+          Twitter
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+`;

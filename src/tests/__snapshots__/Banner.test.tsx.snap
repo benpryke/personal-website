@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner should match the snapshot 1`] = `
+<section
+  className="banner cls"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+>
+  <div />
+</section>
+`;

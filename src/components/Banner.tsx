@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-interface BannerProps {
+export interface BannerProps {
   /** CSS class name for the Banner */
   className?: string,
   /** Whether or not to fade the Banner in as it's scrolled into view */

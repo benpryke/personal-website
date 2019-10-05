@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GitHubButton should match the snapshot 1`] = `
+<a
+  className="social-button"
+  href="https://github.com/benpryke"
+>
+  <i
+    className="fab fa-github"
+  />
+  GitHub
+</a>
+`;
+
+exports[`InstagramButton should match the snapshot 1`] = `
+<a
+  className="social-button"
+  href="https://www.instagram.com/gym_ninja_ben"
+>
+  <i
+    className="fab fa-instagram"
+  />
+  Instagram
+</a>
+`;
+
+exports[`LinkedInButton should match the snapshot 1`] = `
+<a
+  className="social-button"
+  href="https://linkedin.com/in/benjaminpryke"
+>
+  <i
+    className="fab fa-linkedin"
+  />
+  LinkedIn
+</a>
+`;
+
+exports[`SocialButton should match the snapshot 1`] = `
+<a
+  className="social-button"
+  href="url"
+>
+  <i
+    className="icon"
+  />
+  name
+</a>
+`;
+
+exports[`StackOverflowButton should match the snapshot 1`] = `
+<a
+  className="social-button"
+  href="https://stackoverflow.com/users/604687/ninjakannon"
+>
+  <i
+    className="fab fa-stack-overflow"
+  />
+  Stack Overflow
+</a>
+`;
+
+exports[`TwitterButton should match the snapshot 1`] = `
+<a
+  className="social-button"
+  href="https://twitter.com/BenjaminPryke"
+>
+  <i
+    className="fab fa-twitter"
+  />
+  Twitter
+</a>
+`;

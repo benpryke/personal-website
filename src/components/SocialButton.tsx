@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface SocialButtonProps {
+export interface SocialButtonProps {
   /** Name of the social network */
   name: string,
   /** URL to link to */
@@ -29,3 +29,11 @@ export const TwitterButton = () => <SocialButton name='Twitter' icon='fab fa-twi
 export const GitHubButton = () => <SocialButton name='GitHub' icon='fab fa-github' url='https://github.com/benpryke'/>;
 export const StackOverflowButton = () => <SocialButton name='Stack Overflow' icon='fab fa-stack-overflow' url='https://stackoverflow.com/users/604687/ninjakannon'/>;
 export const InstagramButton = () => <SocialButton name='Instagram' icon='fab fa-instagram' url='https://www.instagram.com/gym_ninja_ben'/>;
+
+export const socialButtons = {
+  LinkedInButton,
+  TwitterButton,
+  GitHubButton,
+  StackOverflowButton,
+  InstagramButton,
+};

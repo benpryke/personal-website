@@ -3,7 +3,7 @@ import React from 'react';
 import Banner, { BannerPassthroughProps } from './Banner';
 import { LinkedInButton, TwitterButton } from './SocialButton';
 
-interface HeroProps extends BannerPassthroughProps {
+export interface HeroProps extends BannerPassthroughProps {
   /** Name of our protagonist */
   name: string,
   /** URL to a headshot of the protagonist */
@@ -23,6 +23,8 @@ export default class Hero extends React.Component<HeroProps, HeroState> {
   static MAX_HEIGHT = 500;
   static MIN_HEIGHT = 100;
   static SCROLL_CUTOFF = Hero.MAX_HEIGHT - Hero.MIN_HEIGHT;
+  static MIN_ANIM_WINDOW_WIDTH = 900;
+  static MIN_ANIM_WINDOW_HEIGHT = 700;
 
   constructor(props: HeroProps) {
     super(props);
@@ -34,7 +36,7 @@ export default class Hero extends React.Component<HeroProps, HeroState> {
     this.computeHeight = this.computeHeight.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     document.addEventListener('scroll', this.computeHeight);
     window.addEventListener('resize', this.computeHeight);
   }
@@ -48,7 +50,7 @@ export default class Hero extends React.Component<HeroProps, HeroState> {
     const top = window.scrollY;
     
     // Match the min-width and min-height media rules for applying a header animation
-    if (window.innerWidth < 900 || window.innerHeight < 700) {
+    if (window.innerWidth < Hero.MIN_ANIM_WINDOW_WIDTH || window.innerHeight < Hero.MIN_ANIM_WINDOW_HEIGHT) {
       this.setState({
         height: Hero.MAX_HEIGHT,
       });
