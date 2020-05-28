@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
 
 import Banner, { BannerPassthroughProps } from './Banner';
 
@@ -22,7 +23,11 @@ export default class Paragraph extends React.Component<ParagraphProps> {
       <Banner className='paragraph' {...rest}>
         <div className='paragraph-header'>
           <h2>{title}</h2>
-          {!!imgSrc && <img src={imgSrc} alt={title}/>}
+          {!!imgSrc &&
+            <LazyLoad height={60} offset={100}>
+              <img src={imgSrc} alt={title}/>
+            </LazyLoad>
+          }
         </div>
         {body.match(/[^\r\n]+/g)!.map((line, i) =>
           <p key={i}>{line}</p>
