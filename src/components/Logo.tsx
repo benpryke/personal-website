@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
 
 export interface LogoProps {
   /** Name of the organisation or entity */
@@ -18,7 +19,9 @@ export default class Logo extends React.Component<LogoProps> {
 
     return (
       <a className='logo' href={url} key={name}>
-        <img src={src} alt={name}/>
+        <LazyLoad height={150} offset={100}>
+          <img src={src} alt={name}/>
+        </LazyLoad>
       </a>
     );
   }
