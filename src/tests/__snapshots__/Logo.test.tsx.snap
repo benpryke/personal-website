@@ -5,9 +5,13 @@ exports[`Logo should match the snapshot 1`] = `
   className="logo"
   href="url"
 >
-  <img
-    alt="name"
-    src="src"
+  <div
+    className="lazyload-placeholder"
+    style={
+      Object {
+        "height": 150,
+      }
+    }
   />
 </a>
 `;

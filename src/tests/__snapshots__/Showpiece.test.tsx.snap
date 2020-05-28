@@ -7,9 +7,13 @@ exports[`Showpiece should match the snapshot 1`] = `
   <div
     className="showpiece"
   >
-    <img
-      alt="title"
-      src="thumbnail"
+    <div
+      className="lazyload-placeholder"
+      style={
+        Object {
+          "height": 200,
+        }
+      }
     />
     <h3>
       title

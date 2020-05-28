@@ -1,4 +1,5 @@
 import React from 'react';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
@@ -12,7 +13,7 @@ const components = {
 const props: SocialButtonProps = {
   name: 'name',
   url: 'url',
-  icon: 'icon',
+  icon: faLinkedin,
 };
 
 Object.entries(components).forEach(([name, Component]) => {
