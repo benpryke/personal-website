@@ -1,4 +1,13 @@
 import React from 'react';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faLinkedin,
+  faTwitter,
+  faGithub,
+  faStackOverflow,
+  faInstagram
+} from '@fortawesome/free-brands-svg-icons';
 
 export interface SocialButtonProps {
   /** Name of the social network */
@@ -6,7 +15,7 @@ export interface SocialButtonProps {
   /** URL to link to */
   url: string,
   /** FontAwesome icon class name */
-  icon: string,
+  icon: IconProp,
 }
 
 /**
@@ -18,17 +27,17 @@ export default class SocialButton extends React.Component<SocialButtonProps> {
 
     return (
       <a href={url} className='social-button'>
-        <i className={icon}></i>{name}
+        <FontAwesomeIcon icon={icon} /> {name}
       </a>
     );
   }
 }
 
-export const LinkedInButton = () => <SocialButton name='LinkedIn' icon='fab fa-linkedin' url='https://linkedin.com/in/benjaminpryke'/>;
-export const TwitterButton = () => <SocialButton name='Twitter' icon='fab fa-twitter' url='https://twitter.com/BenjaminPryke'/>;
-export const GitHubButton = () => <SocialButton name='GitHub' icon='fab fa-github' url='https://github.com/benpryke'/>;
-export const StackOverflowButton = () => <SocialButton name='Stack Overflow' icon='fab fa-stack-overflow' url='https://stackoverflow.com/users/604687/ninjakannon'/>;
-export const InstagramButton = () => <SocialButton name='Instagram' icon='fab fa-instagram' url='https://www.instagram.com/gym_ninja_ben'/>;
+export const LinkedInButton = () => <SocialButton name='LinkedIn' icon={faLinkedin} url='https://linkedin.com/in/benjaminpryke'/>;
+export const TwitterButton = () => <SocialButton name='Twitter' icon={faTwitter} url='https://twitter.com/BenjaminPryke'/>;
+export const GitHubButton = () => <SocialButton name='GitHub' icon={faGithub} url='https://github.com/benpryke'/>;
+export const StackOverflowButton = () => <SocialButton name='Stack Overflow' icon={faStackOverflow} url='https://stackoverflow.com/users/604687/ninjakannon'/>;
+export const InstagramButton = () => <SocialButton name='Instagram' icon={faInstagram} url='https://www.instagram.com/gym_ninja_ben'/>;
 
 export const socialButtons = {
   LinkedInButton,
