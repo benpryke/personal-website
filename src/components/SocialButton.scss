@@ -15,8 +15,8 @@
     animation: wave 0.2s ease-in;
   }
   
-  &:hover i {
-    color: #7e228e;
+  &:hover svg {
+    color: $primary-colour;
     transition: all 0.2s ease;
   }
   
@@ -28,7 +28,7 @@
 // Button click animation
 @keyframes wave {
   0% {
-    box-shadow: 0 0 0 0 rgba($primary-colour, 0.33);
+    box-shadow: 0 0 0 0 rgba($primary-colour, 0);
   }
 
   50% {
