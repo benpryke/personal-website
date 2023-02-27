@@ -59,18 +59,9 @@ export default class Hero extends React.Component<HeroProps, HeroState> {
       window.innerWidth < Hero.MIN_ANIM_WINDOW_WIDTH ||
       window.innerHeight < Hero.MIN_ANIM_WINDOW_HEIGHT
     ) {
-      console.log("1", Hero.MAX_HEIGHT);
       return Hero.MAX_HEIGHT;
     } else {
       const top = window.scrollY;
-      console.log(
-        "2",
-        top,
-        top < Hero.SCROLL_CUTOFF,
-        top < Hero.SCROLL_CUTOFF
-          ? Hero.MAX_HEIGHT - top
-          : Hero.MAX_HEIGHT - Hero.SCROLL_CUTOFF
-      );
       return top < Hero.SCROLL_CUTOFF
         ? Hero.MAX_HEIGHT - top
         : Hero.MAX_HEIGHT - Hero.SCROLL_CUTOFF;
