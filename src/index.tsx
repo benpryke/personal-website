@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import { createRoot, hydrateRoot } from "react-dom/client";
 
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
-import './index.scss';
+import "./index.scss";
 
-const rootElement = document.getElementById("root");
+const container = document.getElementById("root");
 
-if (rootElement!.hasChildNodes()) {
-  ReactDOM.hydrate(<App />, rootElement);
+if (container!.hasChildNodes()) {
+  hydrateRoot(container!, <App />);
 } else {
-  ReactDOM.render(<App />, rootElement);
+  createRoot(container!).render(<App />);
 }
 
 // TODO this is likely not useful right now, but may become so

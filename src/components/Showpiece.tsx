@@ -1,15 +1,15 @@
-import React from 'react';
-import LazyLoad from 'react-lazyload';
+import React from "react";
+import LazyLoad from "react-lazyload";
 
 export interface ShowpieceProps {
   /** Heading to display */
-  title: string,
+  title: string;
   /** URL for the thumbnail image */
-  thumbnail: string,
+  thumbnail: string;
   /** Body text of the showpiece */
-  description: string,
+  description: string;
   /** Clicking on the showpiece opens this URL */
-  url: string,
+  url: string;
 }
 
 /**
@@ -21,9 +21,9 @@ export default class Showpiece extends React.Component<ShowpieceProps> {
 
     return (
       <a href={url}>
-        <div className='showpiece'>
+        <div className="showpiece">
           <LazyLoad height={200} offset={100}>
-            <img src={thumbnail} alt={title}/>
+            <img src={thumbnail} alt={title} />
           </LazyLoad>
           <h3>{title}</h3>
           <p>{description}</p>

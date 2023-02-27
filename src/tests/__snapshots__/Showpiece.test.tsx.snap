@@ -8,13 +8,17 @@ exports[`Showpiece should match the snapshot 1`] = `
     className="showpiece"
   >
     <div
-      className="lazyload-placeholder"
-      style={
-        Object {
-          "height": 200,
+      className="lazyload-wrapper "
+    >
+      <div
+        className="lazyload-placeholder"
+        style={
+          Object {
+            "height": 200,
+          }
         }
-      }
-    />
+      />
+    </div>
     <h3>
       title
     </h3>

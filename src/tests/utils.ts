@@ -3,12 +3,12 @@ function defineWindowProperty(name: string, value: any): void {
 }
 
 export function setWindowSize(width: number, height: number): void {
-  defineWindowProperty('innerWidth', width);
-  defineWindowProperty('innerHeight', height);
-  window.dispatchEvent(new Event('resize'));
+  defineWindowProperty("innerWidth", width);
+  defineWindowProperty("innerHeight", height);
+  window.dispatchEvent(new Event("resize"));
 }
 
 export function setScrollY(y: number): void {
-  defineWindowProperty('scrollY', y);
-  document.dispatchEvent(new Event('scroll'));
+  defineWindowProperty("scrollY", y);
+  document.dispatchEvent(new Event("scroll"));
 }

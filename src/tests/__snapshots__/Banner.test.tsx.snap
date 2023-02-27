@@ -2,7 +2,7 @@
 
 exports[`Banner should match the snapshot 1`] = `
 <section
-  className="banner cls"
+  className="banner cls faded-out"
   style={
     Object {
       "color": "red",

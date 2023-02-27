@@ -7,12 +7,12 @@
   padding: $section-vertical-padding 10%;
   text-align: center;
   box-sizing: border-box;
-  
-  &>h2 {
+
+  & > h2 {
     margin: 0 0 30px;
   }
-  
-  &>p {
+
+  & > p {
     color: $primary-text-colour;
   }
 }
@@ -41,7 +41,7 @@
 @media only screen and (min-width: $screen-width-s) {
   .banner {
     box-sizing: inherit;
-    
+
     &:not(.showcase):not(.logos) {
       padding: $section-vertical-padding 20%;
     }

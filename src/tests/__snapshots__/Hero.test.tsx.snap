@@ -47,7 +47,7 @@ exports[`Hero should match the snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-linkedin fa-w-14 "
+            className="svg-inline--fa fa-linkedin "
             data-icon="linkedin"
             data-prefix="fab"
             focusable="false"
@@ -71,7 +71,7 @@ exports[`Hero should match the snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-twitter fa-w-16 "
+            className="svg-inline--fa fa-twitter "
             data-icon="twitter"
             data-prefix="fab"
             focusable="false"

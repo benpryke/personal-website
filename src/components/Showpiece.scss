@@ -7,9 +7,10 @@
   padding: 10px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 8px 14px 38px rgba(45, 51, 56, 0.08), 1px 3px 8px rgba(45, 51, 56, 0.03);
+  box-shadow: 8px 14px 38px rgba(45, 51, 56, 0.08),
+    1px 3px 8px rgba(45, 51, 56, 0.03);
   transition: 0.5s ease;
-  
+
   @media (hover: hover) {
     &:hover {
       top: -10px;

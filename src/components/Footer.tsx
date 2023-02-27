@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Banner, { BannerPassthroughProps } from './Banner';
-import { LinkedInButton, TwitterButton, GitHubButton, StackOverflowButton, InstagramButton } from './SocialButton';
+import Banner, { BannerPassthroughProps } from "./Banner";
+import {
+  LinkedInButton,
+  TwitterButton,
+  GitHubButton,
+  StackOverflowButton,
+  InstagramButton,
+} from "./SocialButton";
 
 /**
  * Page footer
@@ -9,14 +15,14 @@ import { LinkedInButton, TwitterButton, GitHubButton, StackOverflowButton, Insta
 export default class Footer extends Component<BannerPassthroughProps> {
   render() {
     return (
-      <Banner className='footer' {...this.props}>
+      <Banner className="footer" {...this.props}>
         <h2>Get in touch</h2>
         <footer>
-          <LinkedInButton/>
-          <TwitterButton/>
-          <GitHubButton/>
-          <StackOverflowButton/>
-          <InstagramButton/>
+          <LinkedInButton />
+          <TwitterButton />
+          <GitHubButton />
+          <StackOverflowButton />
+          <InstagramButton />
         </footer>
       </Banner>
     );

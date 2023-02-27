@@ -4,19 +4,14 @@
   "homepage": "https://www.benpryke.com",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-brands-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
-    "@types/classnames": "^2.2.9",
-    "@types/node": "^12.7.11",
-    "@types/react": "^16.9.5",
-    "@types/react-dom": "^16.9.1",
-    "@types/react-lazyload": "^2.6.0",
-    "classnames": "^2.2.6",
-    "react": "^16.10.2",
-    "react-dom": "^16.13.1",
-    "react-lazyload": "^2.6.7",
-    "typescript": "^3.9.3"
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-brands-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "classnames": "^2.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-lazyload": "^3.2.0",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,17 +32,27 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/enzyme": "^3.10.3",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "@types/jest": "^24.0.18",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-lazyload": "^3.2.0",
     "@types/react-test-renderer": "^16.9.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "gh-pages": "^2.1.1",
-    "node-sass": "^4.14.1",
-    "react-scripts": "^3.4.3",
+    "gh-pages": "^5.0.0",
+    "jest-dom": "^4.0.0",
+    "node-sass": "^8.0.0",
+    "prettier": "^2.8.4",
+    "react-scripts": "^5.0.0",
     "react-snap": "^1.23.0",
-    "react-test-renderer": "^16.13.1",
-    "ts-jest": "^24.3.0"
+    "react-test-renderer": "^18.2.0",
+    "ts-jest": "^29.0.5"
+  },
+  "overrides": {
+    "react-lazyload": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    }
   }
 }

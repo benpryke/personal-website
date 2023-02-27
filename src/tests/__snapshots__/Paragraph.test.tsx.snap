@@ -2,7 +2,7 @@
 
 exports[`Paragraph should match the snapshot 1`] = `
 <section
-  className="banner paragraph"
+  className="banner paragraph faded-out"
 >
   <div
     className="paragraph-header"
@@ -11,13 +11,17 @@ exports[`Paragraph should match the snapshot 1`] = `
       title
     </h2>
     <div
-      className="lazyload-placeholder"
-      style={
-        Object {
-          "height": 60,
+      className="lazyload-wrapper "
+    >
+      <div
+        className="lazyload-placeholder"
+        style={
+          Object {
+            "height": 60,
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
   <p>
     body

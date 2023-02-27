@@ -1,57 +1,81 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import renderer from 'react-test-renderer';
+import React from "react";
+import { render, waitFor } from "@testing-library/react";
+import renderer, { act } from "react-test-renderer";
+import "@testing-library/jest-dom";
 
-import Banner, { BannerProps } from '../components/Banner';
-import { setWindowSize, setScrollY } from './utils';
+import Banner, { BannerProps } from "../components/Banner";
+import { setWindowSize, setScrollY } from "./utils";
 
 // fadeInOffset must be larger than windowSize or the Banner will fade in instantly
 // when scrolled even 1 pixel
 const windowSize = 900;
 const props: BannerProps = {
-  className: 'cls',
+  className: "cls",
   fadeIn: true,
   fadeInOffset: windowSize + 100,
-  style: {color: 'red'},
+  style: { color: "red" },
   children: <div></div>,
 };
 
-describe('Banner', () => {
+describe("Banner", () => {
   beforeAll(() => {
-    setWindowSize(windowSize, windowSize);
+    act(() => setWindowSize(windowSize, windowSize));
   });
 
-  it('renders without crashing', () => {
-    mount(<Banner {...props}/>);
+  it("renders without crashing", () => {
+    render(<Banner {...props} />);
   });
 
-  it('should match the snapshot', () => {
-    const tree = renderer.create(<Banner {...props}/>).toJSON();
+  it("should match the snapshot", () => {
+    const tree = renderer.create(<Banner {...props} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('initially renders visible when fadeIn is true', () => {
-    const wrapper = mount(<Banner {...props}/>);
-    const banner = wrapper.find('.banner');
-    expect(banner.hasClass('faded-in')).toBe(false);
-    expect(banner.hasClass('faded-out')).toBe(false);
+  it("initially renders faded-in when visible and fadeIn is true", async () => {
+    const { container } = await waitFor(() =>
+      render(<Banner {...props} fadeInOffset={0} />)
+    );
+    const banner = container.firstChild;
+    expect(banner).toHaveClass("faded-in");
+    expect(banner).not.toHaveClass("faded-out");
   });
 
-  it('renders invisible when fadeIn is true and the document is scrolled', () => {
-    const wrapper = mount(<Banner {...props}/>);
-    setScrollY(1);
-    wrapper.update();
-    const banner = wrapper.find('.banner');
-    expect(banner.hasClass('faded-in')).toBe(false);
-    expect(banner.hasClass('faded-out')).toBe(true);
+  it("initially renders faded-out when invisible and fadeIn is true", async () => {
+    const { container } = await waitFor(() => render(<Banner {...props} />));
+    const banner = container.firstChild;
+    expect(banner).not.toHaveClass("faded-in");
+    expect(banner).toHaveClass("faded-out");
   });
 
-  it('fades in when fadeIn is true and the document is scrolled to fadeInOffset', () => {
-    const wrapper = mount(<Banner {...props}/>);
-    setScrollY(props.fadeInOffset);
-    wrapper.update();
-    const banner = wrapper.find('.banner');
-    expect(banner.hasClass('faded-in')).toBe(true);
-    expect(banner.hasClass('faded-out')).toBe(false);
+  it("fades in when fadeIn is true and the document is scrolled to fadeInOffset", async () => {
+    const { container } = await waitFor(() => render(<Banner {...props} />));
+    const banner = container.firstChild;
+
+    // Scroll, but not far enough to trigger the fade-in
+    act(() => setScrollY(1));
+    expect(banner).not.toHaveClass("faded-in");
+    expect(banner).toHaveClass("faded-out");
+
+    // Scroll far enough to trigger the fade-in
+    act(() => setScrollY(props.fadeInOffset));
+    expect(banner).toHaveClass("faded-in");
+    expect(banner).not.toHaveClass("faded-out");
+  });
+
+  it("does not fade in when fadeIn is false and the document is scrolled to fadeInOffset", async () => {
+    const { container } = await waitFor(() =>
+      render(<Banner {...props} fadeIn={false} />)
+    );
+    const banner = container.firstChild;
+
+    // Scroll, but not far enough to trigger the fade-in
+    act(() => setScrollY(1));
+    expect(banner).not.toHaveClass("faded-in");
+    expect(banner).not.toHaveClass("faded-out");
+
+    // Scroll far enough to trigger the fade-in
+    act(() => setScrollY(props.fadeInOffset));
+    expect(banner).not.toHaveClass("faded-in");
+    expect(banner).not.toHaveClass("faded-out");
   });
 });

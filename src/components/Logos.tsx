@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import Banner, { BannerPassthroughProps } from './Banner';
+import Banner, { BannerPassthroughProps } from "./Banner";
 
-export interface LogosProps extends BannerPassthroughProps{
+export interface LogosProps extends BannerPassthroughProps {
   /** Heading */
-  title: string,
+  title: string;
   /** Logos */
   children: React.ReactNode;
 }
@@ -17,11 +17,9 @@ export default class Logos extends React.Component<LogosProps> {
     const { title, children, ...rest } = this.props;
 
     return (
-      <Banner className='logos' {...rest}>
+      <Banner className="logos" {...rest}>
         <h2>{title}</h2>
-        <div className='logo-collection'>
-          {children}
-        </div>
+        <div className="logo-collection">{children}</div>
       </Banner>
     );
   }

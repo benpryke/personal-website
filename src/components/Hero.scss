@@ -27,8 +27,12 @@ section.banner.hero {
 }
 
 @keyframes hero-fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .hero {
@@ -59,7 +63,7 @@ section.banner.hero {
 }
 
 @mixin speech-bubble-arrow-base() {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 0;
@@ -80,12 +84,12 @@ section.banner.hero {
   background: #fbfeff;
   box-sizing: border-box;
   box-shadow: 5px 5px 10px rgba(2, 23, 33, 0.12);
-  
+
   // Ensure that the speech bubble contents are in front of the bubble arrow
   * {
     z-index: 5;
   }
-  
+
   h1 {
     font-size: 1.2em;
     white-space: nowrap;
@@ -151,7 +155,7 @@ section.banner.hero {
     width: auto;
     margin-top: 0;
   }
-  
+
   .speech-bubble {
     width: calc(40vw - 120px);
     max-width: $screen-width-l / 2 - 120px;
@@ -161,7 +165,7 @@ section.banner.hero {
 
 // Devices with larger width & height get a sticky header
 @media only screen and (min-width: $screen-width-m) and (min-height: $screen-height-s) {
-  section.banner.hero  {
+  section.banner.hero {
     position: sticky;
     top: -400px;
   }

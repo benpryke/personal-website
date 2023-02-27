@@ -1,9 +1,12 @@
-import React from 'react';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { mount } from 'enzyme';
-import renderer from 'react-test-renderer';
+import React from "react";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { render } from "@testing-library/react";
+import renderer from "react-test-renderer";
 
-import SocialButton, { SocialButtonProps, socialButtons } from '../components/SocialButton';
+import SocialButton, {
+  SocialButtonProps,
+  socialButtons,
+} from "../components/SocialButton";
 
 const components = {
   SocialButton,
@@ -11,19 +14,19 @@ const components = {
 };
 
 const props: SocialButtonProps = {
-  name: 'name',
-  url: 'url',
+  name: "name",
+  url: "url",
   icon: faLinkedin,
 };
 
 Object.entries(components).forEach(([name, Component]) => {
   describe(name, () => {
-    it('renders without crashing', () => {
-      mount(<Component {...props}/>);
+    it("renders without crashing", () => {
+      render(<Component {...props} />);
     });
 
-    it('should match the snapshot', () => {
-      const tree = renderer.create(<Component {...props}/>).toJSON();
+    it("should match the snapshot", () => {
+      const tree = renderer.create(<Component {...props} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

@@ -1,15 +1,15 @@
-import React from 'react';
-import LazyLoad from 'react-lazyload';
+import React from "react";
+import LazyLoad from "react-lazyload";
 
-import Banner, { BannerPassthroughProps } from './Banner';
+import Banner, { BannerPassthroughProps } from "./Banner";
 
 export interface ParagraphProps extends BannerPassthroughProps {
   /** Heading */
-  title: string,
+  title: string;
   /** Paragraph text */
-  body: string,
+  body: string;
   /** URL of an image to display in the top-right, in-line with the heading */
-  imgSrc?: string,
+  imgSrc?: string;
 }
 
 /**
@@ -20,18 +20,18 @@ export default class Paragraph extends React.Component<ParagraphProps> {
     const { title, body, imgSrc, ...rest } = this.props;
 
     return (
-      <Banner className='paragraph' {...rest}>
-        <div className='paragraph-header'>
+      <Banner className="paragraph" {...rest}>
+        <div className="paragraph-header">
           <h2>{title}</h2>
-          {!!imgSrc &&
+          {!!imgSrc && (
             <LazyLoad height={60} offset={100}>
-              <img src={imgSrc} alt={title}/>
+              <img src={imgSrc} alt={title} />
             </LazyLoad>
-          }
+          )}
         </div>
-        {body.match(/[^\r\n]+/g)!.map((line, i) =>
+        {body.match(/[^\r\n]+/g)!.map((line, i) => (
           <p key={i}>{line}</p>
-        )}
+        ))}
       </Banner>
     );
   }

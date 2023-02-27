@@ -7,7 +7,7 @@ exports[`GitHubButton should match the snapshot 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-github fa-w-16 "
+    className="svg-inline--fa fa-github "
     data-icon="github"
     data-prefix="fab"
     focusable="false"
@@ -34,7 +34,7 @@ exports[`InstagramButton should match the snapshot 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-instagram fa-w-14 "
+    className="svg-inline--fa fa-instagram "
     data-icon="instagram"
     data-prefix="fab"
     focusable="false"
@@ -61,7 +61,7 @@ exports[`LinkedInButton should match the snapshot 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-linkedin fa-w-14 "
+    className="svg-inline--fa fa-linkedin "
     data-icon="linkedin"
     data-prefix="fab"
     focusable="false"
@@ -88,7 +88,7 @@ exports[`SocialButton should match the snapshot 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-linkedin fa-w-14 "
+    className="svg-inline--fa fa-linkedin "
     data-icon="linkedin"
     data-prefix="fab"
     focusable="false"
@@ -115,7 +115,7 @@ exports[`StackOverflowButton should match the snapshot 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-stack-overflow fa-w-12 "
+    className="svg-inline--fa fa-stack-overflow "
     data-icon="stack-overflow"
     data-prefix="fab"
     focusable="false"
@@ -142,7 +142,7 @@ exports[`TwitterButton should match the snapshot 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-twitter fa-w-16 "
+    className="svg-inline--fa fa-twitter "
     data-icon="twitter"
     data-prefix="fab"
     focusable="false"
