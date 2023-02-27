@@ -74,6 +74,16 @@ My role thankfully permits the freedom to work with and move between multiple in
         </Showcase>
         <Logos title="Professional Relationships">
           <Logo
+            name="J.P. Morgan"
+            src="images/logos/logo-jpmc.svg"
+            url="https://jpmorgan.com"
+          />
+          <Logo
+            name="Maeva"
+            src="images/logos/logo-maeva.png"
+            url="https://meetmaeva.com"
+          />
+          <Logo
             name="Beacon Platform"
             src="images/logos/logo-beacon.jpg"
             url="https://beacon.io"
