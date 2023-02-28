@@ -15,20 +15,23 @@ export interface ShowpieceProps {
 /**
  * A piece to show off, with an image, a title and some text
  */
-export default class Showpiece extends React.Component<ShowpieceProps> {
-  render() {
-    const { title, thumbnail, description, url } = this.props;
+const Showpiece: React.FC<ShowpieceProps> = ({
+  title,
+  thumbnail,
+  description,
+  url,
+}) => {
+  return (
+    <a href={url}>
+      <div className="showpiece">
+        <LazyLoad height={200} offset={100}>
+          <img src={thumbnail} alt={title} />
+        </LazyLoad>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    </a>
+  );
+};
 
-    return (
-      <a href={url}>
-        <div className="showpiece">
-          <LazyLoad height={200} offset={100}>
-            <img src={thumbnail} alt={title} />
-          </LazyLoad>
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
-      </a>
-    );
-  }
-}
+export default Showpiece;

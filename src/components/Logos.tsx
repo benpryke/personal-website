@@ -1,8 +1,8 @@
 import React from "react";
 
-import Banner, { BannerPassthroughProps } from "./Banner";
+import Banner, { BannerProps } from "./Banner";
 
-export interface LogosProps extends BannerPassthroughProps {
+export interface LogosProps extends BannerProps {
   /** Heading */
   title: string;
   /** Logos */
@@ -12,15 +12,13 @@ export interface LogosProps extends BannerPassthroughProps {
 /**
  * A set of logos, each represented via the Logo component
  */
-export default class Logos extends React.Component<LogosProps> {
-  render() {
-    const { title, children, ...rest } = this.props;
+const Logos: React.FC<LogosProps> = ({ title, children, ...rest }) => {
+  return (
+    <Banner className="logos" {...rest}>
+      <h2>{title}</h2>
+      <div className="logo-collection">{children}</div>
+    </Banner>
+  );
+};
 
-    return (
-      <Banner className="logos" {...rest}>
-        <h2>{title}</h2>
-        <div className="logo-collection">{children}</div>
-      </Banner>
-    );
-  }
-}
+export default Logos;

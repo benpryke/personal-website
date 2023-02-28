@@ -1,8 +1,14 @@
 import React from "react";
-import { render, waitFor } from "@testing-library/react";
-import renderer, { act } from "react-test-renderer";
+import { act, render, waitFor } from "@testing-library/react";
+import pretty from "pretty";
 
-import Hero, { HeroProps } from "../components/Hero";
+import Hero, {
+  HeroProps,
+  MIN_HEIGHT,
+  MAX_HEIGHT,
+  MIN_ANIM_WINDOW_WIDTH,
+  MIN_ANIM_WINDOW_HEIGHT,
+} from "../components/Hero";
 import { setWindowSize, setScrollY } from "./utils";
 
 const props: HeroProps = {
@@ -20,34 +26,26 @@ describe("Hero", () => {
   });
 
   it("should match the snapshot", () => {
-    const tree = renderer.create(<Hero {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Hero {...props} />);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 
   it("renders with a fixed height when the window is small", async () => {
     const { container } = render(<Hero {...props} />);
     const heroContent = container.getElementsByClassName("hero-content")[0];
 
-    act(() => setScrollY(Hero.MAX_HEIGHT * 2));
+    act(() => setScrollY(MAX_HEIGHT * 2));
 
     // Small width
-    act(() =>
-      setWindowSize(Hero.MIN_ANIM_WINDOW_WIDTH - 1, Hero.MIN_ANIM_WINDOW_HEIGHT)
-    );
+    act(() => setWindowSize(MIN_ANIM_WINDOW_WIDTH - 1, MIN_ANIM_WINDOW_HEIGHT));
     await waitFor(() =>
-      expect(getComputedStyle(heroContent).maxHeight).toEqual(
-        `${Hero.MAX_HEIGHT}px`
-      )
+      expect(getComputedStyle(heroContent).maxHeight).toEqual(`${MAX_HEIGHT}px`)
     );
 
     // Small height
-    act(() =>
-      setWindowSize(Hero.MIN_ANIM_WINDOW_WIDTH, Hero.MIN_ANIM_WINDOW_HEIGHT - 1)
-    );
+    act(() => setWindowSize(MIN_ANIM_WINDOW_WIDTH, MIN_ANIM_WINDOW_HEIGHT - 1));
     await waitFor(() =>
-      expect(getComputedStyle(heroContent).maxHeight).toEqual(
-        `${Hero.MAX_HEIGHT}px`
-      )
+      expect(getComputedStyle(heroContent).maxHeight).toEqual(`${MAX_HEIGHT}px`)
     );
   });
 
@@ -55,24 +53,18 @@ describe("Hero", () => {
     const { container } = render(<Hero {...props} />);
     const heroContent = container.getElementsByClassName("hero-content")[0];
 
-    act(() =>
-      setWindowSize(Hero.MIN_ANIM_WINDOW_WIDTH, Hero.MIN_ANIM_WINDOW_HEIGHT)
-    );
+    act(() => setWindowSize(MIN_ANIM_WINDOW_WIDTH, MIN_ANIM_WINDOW_HEIGHT));
 
     // Scrolled to top
     act(() => setScrollY(0));
     await waitFor(() =>
-      expect(getComputedStyle(heroContent).maxHeight).toEqual(
-        `${Hero.MAX_HEIGHT}px`
-      )
+      expect(getComputedStyle(heroContent).maxHeight).toEqual(`${MAX_HEIGHT}px`)
     );
 
     // Scrolled to bottom
-    act(() => setScrollY(Hero.MAX_HEIGHT * 2));
+    act(() => setScrollY(MAX_HEIGHT * 2));
     await waitFor(() =>
-      expect(getComputedStyle(heroContent).maxHeight).toEqual(
-        `${Hero.MIN_HEIGHT}px`
-      )
+      expect(getComputedStyle(heroContent).maxHeight).toEqual(`${MIN_HEIGHT}px`)
     );
   });
 });

@@ -1,9 +1,9 @@
 import React from "react";
 import LazyLoad from "react-lazyload";
 
-import Banner, { BannerPassthroughProps } from "./Banner";
+import Banner, { BannerProps } from "./Banner";
 
-export interface ParagraphProps extends BannerPassthroughProps {
+export interface ParagraphProps extends BannerProps {
   /** Heading */
   title: string;
   /** Paragraph text */
@@ -15,24 +15,27 @@ export interface ParagraphProps extends BannerPassthroughProps {
 /**
  * A paragraph with a title
  */
-export default class Paragraph extends React.Component<ParagraphProps> {
-  render() {
-    const { title, body, imgSrc, ...rest } = this.props;
+const Paragraph: React.FC<ParagraphProps> = ({
+  title,
+  body,
+  imgSrc,
+  ...rest
+}) => {
+  return (
+    <Banner className="paragraph" {...rest}>
+      <div className="paragraph-header">
+        <h2>{title}</h2>
+        {!!imgSrc && (
+          <LazyLoad height={60} offset={100}>
+            <img src={imgSrc} alt={title} />
+          </LazyLoad>
+        )}
+      </div>
+      {body.match(/[^\r\n]+/g)!.map((line, i) => (
+        <p key={i}>{line}</p>
+      ))}
+    </Banner>
+  );
+};
 
-    return (
-      <Banner className="paragraph" {...rest}>
-        <div className="paragraph-header">
-          <h2>{title}</h2>
-          {!!imgSrc && (
-            <LazyLoad height={60} offset={100}>
-              <img src={imgSrc} alt={title} />
-            </LazyLoad>
-          )}
-        </div>
-        {body.match(/[^\r\n]+/g)!.map((line, i) => (
-          <p key={i}>{line}</p>
-        ))}
-      </Banner>
-    );
-  }
-}
+export default Paragraph;

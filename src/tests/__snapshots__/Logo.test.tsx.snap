@@ -1,21 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Logo should match the snapshot 1`] = `
-<a
-  className="logo"
-  href="url"
->
-  <div
-    className="lazyload-wrapper "
-  >
-    <div
-      className="lazyload-placeholder"
-      style={
-        Object {
-          "height": 150,
-        }
-      }
-    />
+"<a class=\\"logo\\" href=\\"url\\">
+  <div class=\\"lazyload-wrapper \\">
+    <div style=\\"height: 150px;\\" class=\\"lazyload-placeholder\\"></div>
   </div>
-</a>
+</a>"
 `;

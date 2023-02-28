@@ -1,7 +1,7 @@
 import React from "react";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { render } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import pretty from "pretty";
 
 import SocialButton, {
   SocialButtonProps,
@@ -26,8 +26,8 @@ Object.entries(components).forEach(([name, Component]) => {
     });
 
     it("should match the snapshot", () => {
-      const tree = renderer.create(<Component {...props} />).toJSON();
-      expect(tree).toMatchSnapshot();
+      const { container } = render(<Component {...props} />);
+      expect(pretty(container.innerHTML)).toMatchSnapshot();
     });
   });
 });

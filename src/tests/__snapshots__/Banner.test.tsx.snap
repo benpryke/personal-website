@@ -1,14 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Banner should match the snapshot 1`] = `
-<section
-  className="banner cls faded-out"
-  style={
-    Object {
-      "color": "red",
-    }
-  }
->
-  <div />
-</section>
+"<section class=\\"banner cls faded-out\\" style=\\"color: red;\\">
+  <div></div>
+</section>"
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import pretty from "pretty";
 
 import Showpiece, { ShowpieceProps } from "../components/Showpiece";
 
@@ -17,7 +17,7 @@ describe("Showpiece", () => {
   });
 
   it("should match the snapshot", () => {
-    const tree = renderer.create(<Showpiece {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Showpiece {...props} />);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });

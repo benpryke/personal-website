@@ -1,6 +1,6 @@
 import React from "react";
-import { render, waitFor } from "@testing-library/react";
-import renderer, { act } from "react-test-renderer";
+import { act, render, waitFor } from "@testing-library/react";
+import pretty from "pretty";
 import "@testing-library/jest-dom";
 
 import Banner, { BannerProps } from "../components/Banner";
@@ -9,10 +9,11 @@ import { setWindowSize, setScrollY } from "./utils";
 // fadeInOffset must be larger than windowSize or the Banner will fade in instantly
 // when scrolled even 1 pixel
 const windowSize = 900;
+const fadeInOffset = windowSize + 100;
 const props: BannerProps = {
   className: "cls",
   fadeIn: true,
-  fadeInOffset: windowSize + 100,
+  fadeInOffset,
   style: { color: "red" },
   children: <div></div>,
 };
@@ -27,8 +28,8 @@ describe("Banner", () => {
   });
 
   it("should match the snapshot", () => {
-    const tree = renderer.create(<Banner {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Banner {...props} />);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 
   it("initially renders faded-in when visible and fadeIn is true", async () => {
@@ -57,7 +58,7 @@ describe("Banner", () => {
     expect(banner).toHaveClass("faded-out");
 
     // Scroll far enough to trigger the fade-in
-    act(() => setScrollY(props.fadeInOffset));
+    act(() => setScrollY(fadeInOffset));
     expect(banner).toHaveClass("faded-in");
     expect(banner).not.toHaveClass("faded-out");
   });
@@ -74,7 +75,7 @@ describe("Banner", () => {
     expect(banner).not.toHaveClass("faded-out");
 
     // Scroll far enough to trigger the fade-in
-    act(() => setScrollY(props.fadeInOffset));
+    act(() => setScrollY(fadeInOffset));
     expect(banner).not.toHaveClass("faded-in");
     expect(banner).not.toHaveClass("faded-out");
   });

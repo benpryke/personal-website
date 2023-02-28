@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import pretty from "pretty";
 
 import Logos, { LogosProps } from "../components/Logos";
 
@@ -15,7 +15,7 @@ describe("Logos", () => {
   });
 
   it("should match the snapshot", () => {
-    const tree = renderer.create(<Logos {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Logos {...props} />);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });

@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import pretty from "pretty";
 
 import Paragraph, { ParagraphProps } from "../components/Paragraph";
 
@@ -16,7 +16,7 @@ describe("Paragraph", () => {
   });
 
   it("should match the snapshot", () => {
-    const tree = renderer.create(<Paragraph {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Paragraph {...props} />);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });

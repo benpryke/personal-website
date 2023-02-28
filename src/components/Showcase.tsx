@@ -1,8 +1,8 @@
 import React from "react";
 
-import Banner, { BannerPassthroughProps } from "./Banner";
+import Banner, { BannerProps } from "./Banner";
 
-export interface ShowcaseProps extends BannerPassthroughProps {
+export interface ShowcaseProps extends BannerProps {
   /** Heading */
   title: string;
   /** 1-3 showpieces */
@@ -12,15 +12,13 @@ export interface ShowcaseProps extends BannerPassthroughProps {
 /**
  * A showcase of 1-3 showpieces, each represented via the Showpiece component
  */
-export default class Showcase extends React.Component<ShowcaseProps> {
-  render() {
-    const { title, children, ...rest } = this.props;
+const Showcase: React.FC<ShowcaseProps> = ({ title, children, ...rest }) => {
+  return (
+    <Banner className="showcase" {...rest}>
+      <h2>{title}</h2>
+      <div className="showpieces">{children}</div>
+    </Banner>
+  );
+};
 
-    return (
-      <Banner className="showcase" {...rest}>
-        <h2>{title}</h2>
-        <div className="showpieces">{children}</div>
-      </Banner>
-    );
-  }
-}
+export default Showcase;

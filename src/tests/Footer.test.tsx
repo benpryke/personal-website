@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import pretty from "pretty";
 
 import Footer from "../components/Footer";
-import { BannerPassthroughProps } from "../components/Banner";
+import { BannerProps } from "../components/Banner";
 
-const props: BannerPassthroughProps = {
+const props: BannerProps = {
   fadeIn: false,
   fadeInOffset: 200,
   className: "cls",
@@ -18,7 +18,7 @@ describe("Footer", () => {
   });
 
   it("should match the snapshot", () => {
-    const tree = renderer.create(<Footer {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Footer {...props} />);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });

@@ -1,106 +1,71 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
 
 export interface BannerProps {
   /** CSS class name for the Banner */
   className?: string;
   /** Whether or not to fade the Banner in as it's scrolled into view */
-  fadeIn: boolean;
+  fadeIn?: boolean;
   /**
    * How many pixels above the bottom of the viewport the Banner has to be before it fades in.
    * This ensures that the animation is visible.
    */
-  fadeInOffset: number;
+  fadeInOffset?: number;
   /** CSS style */
-  style?: object;
-  /** Banners may have children */
+  style?: React.CSSProperties;
+  /** Banners must have children */
   children?: React.ReactNode;
 }
 
-interface BannerState {
-  fadedIn: boolean;
-  fadedOut: boolean;
-}
+const Banner: React.FC<BannerProps> = ({
+  fadeIn = true,
+  fadeInOffset = 100,
+  className,
+  style,
+  children,
+}) => {
+  const [fadedIn, setFadedIn] = useState(false);
+  const [fadedOut, setFadedOut] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
 
-/**
- * A full-width section spanning the page
- */
-export default class Banner extends React.Component<BannerProps, BannerState> {
-  static defaultProps = {
-    fadeIn: true,
-    fadeInOffset: 100,
-  };
+  useEffect(() => {
+    if (fadeIn) {
+      const triggerFadeIn = () => {
+        if (ref.current) {
+          const bannerTop = ref.current.offsetTop;
+          const windowBottom = window.scrollY + window.innerHeight;
+          const fadedIn = windowBottom >= bannerTop + fadeInOffset;
 
-  state: BannerState = {
-    fadedIn: false,
-    fadedOut: false,
-  };
+          if (fadedIn) {
+            document.removeEventListener("scroll", triggerFadeIn);
+            setFadedIn(true);
+          } else if (!fadedOut) {
+            setFadedOut(true);
+          }
+        }
+      };
 
-  ref: React.RefObject<HTMLInputElement> | undefined;
-
-  constructor(props: BannerProps) {
-    super(props);
-
-    if (props.fadeIn) {
-      this.ref = React.createRef();
-      this.triggerFadeIn = this.triggerFadeIn.bind(this);
-      document.addEventListener("scroll", this.triggerFadeIn);
+      triggerFadeIn();
+      document.addEventListener("scroll", triggerFadeIn);
+      return () => document.removeEventListener("scroll", triggerFadeIn);
     } else {
-      this.state.fadedIn = true;
+      setFadedIn(true);
     }
-  }
+  }, [fadeIn, fadeInOffset, fadedOut]);
 
-  componentDidMount() {
-    if (this.props.fadeIn) {
-      this.triggerFadeIn();
-    }
-  }
+  return (
+    <section
+      ref={ref}
+      className={classNames("banner", {
+        [className ?? ""]: className,
+        "faded-out": fadedOut && !fadedIn,
+        "faded-in": fadeIn && fadedIn,
+      })}
+      style={style}
+    >
+      {children}
+    </section>
+  );
+};
 
-  triggerFadeIn(event?: Event): void {
-    const { fadeIn, fadeInOffset } = this.props;
-
-    // Only trigger the fade in animation if it's switched on
-    if (!fadeIn) return;
-
-    // To make the fade-in more visible, we start at an offset.
-    // Note: if the banner height is less than the offset and at the bottom of
-    // the page, we will never be able to trigger the animation.
-    const bannerTop = this.ref!.current
-      ? this.ref!.current.offsetTop
-      : Infinity;
-    const windowBottom = window.scrollY + window.innerHeight;
-    const fadedIn = windowBottom >= bannerTop + fadeInOffset;
-
-    if (fadedIn) {
-      document.removeEventListener("scroll", this.triggerFadeIn);
-      this.setState({ fadedIn });
-    } else if (!this.state.fadedOut) {
-      this.setState({ fadedOut: true });
-    }
-  }
-
-  render() {
-    const { className, children, fadeIn, style } = this.props;
-    const { fadedIn, fadedOut } = this.state;
-
-    return (
-      <section
-        ref={this.ref}
-        className={classNames("banner", {
-          [className as any]: className,
-          "faded-out": fadedOut && !fadedIn,
-          "faded-in": fadeIn && fadedIn,
-        })}
-        style={style}
-      >
-        {children}
-      </section>
-    );
-  }
-}
-
-type DefaultBannerProps = keyof typeof Banner.defaultProps;
-export type BannerPassthroughProps = Partial<
-  Pick<BannerProps, DefaultBannerProps>
-> &
-  Omit<BannerProps, DefaultBannerProps>;
+export default Banner;

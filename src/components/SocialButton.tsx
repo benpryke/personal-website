@@ -21,17 +21,15 @@ export interface SocialButtonProps {
 /**
  * A link to social media
  */
-export default class SocialButton extends React.Component<SocialButtonProps> {
-  render() {
-    const { name, url, icon } = this.props;
+const SocialButton: React.FC<SocialButtonProps> = ({ name, url, icon }) => {
+  return (
+    <a href={url} className="social-button">
+      <FontAwesomeIcon icon={icon} /> {name}
+    </a>
+  );
+};
 
-    return (
-      <a href={url} className="social-button">
-        <FontAwesomeIcon icon={icon} /> {name}
-      </a>
-    );
-  }
-}
+export default SocialButton;
 
 export const LinkedInButton = () => (
   <SocialButton
