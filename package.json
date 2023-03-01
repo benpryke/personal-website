@@ -54,5 +54,11 @@
       "react": "^18.2.0",
       "react-dom": "^18.2.0"
     }
+  },
+  "resolutions": {
+    "minimist": "^1.2.6",
+    "qs": "^6.5.3",
+    "node-fetch": "^2.6.7",
+    "nth-check": "^2.0.1"
   }
 }
