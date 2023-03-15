@@ -18,11 +18,11 @@ export default class App extends Component {
           fadeIn={false}
         />
         <Paragraph
-          title="Story"
-          body="I'm a highly driven full stack developer living and breathing the tech and FinTech startup worlds with a background in computer science and machine learning. I'm super excited by nascent and growth-phase companies, especially those using machine learning, as I'm motivated by being at the creative edge of new solutions.
-Working in fast-paced startups has been perfect because I highly value diversity in my tasks and the freedom to make my own decisions and take ownership. I try to add value by understanding the bigger picture and actively engaging with projects at every level from roadmapping and architectural decisions, implementation minutiae and refactoring, to client demos and teaching. Right now, I mostly code with Python and React as these tools typically provide the most efficient and powerful routes to getting things done.
-I still remember how I felt at 11 years old when my dad brought home a gigantic, discarded Windows 98 PC from work, so it's no surprise that less than a year later I had started programming. My teenage creative energy expenditure on Flash games, websites and physics simulations ultimately culminated in a Master's degree in Computer Science from Bristol University. From there I dove straight into a PhD in machine and deep learning at the University of Edinburgh before leaving to co-found a profitable boutique investment fund utilising that PhD skillset to find inefficiencies in niche markets. Realising both the long time horizon it would take to build reputation enough to obtain significant funding and the limitations of not being surrounded by other developers, I moved happily to London to join the FinTech startup Beacon.
-Outside my primary work schedule, I make sure to push myself and learn in other ways such as writing data science articles, training gymnastics, and meeting others from the startup community to discuss the incredible things they're doing."
+          title="Bio"
+          body="I build simple solutions to complex problems by working at the intersection of engineering and management. By connecting big ideas to small details, I strive to simplify implementations, polish user experiences, and uplift the people and technology around me.
+Technology is about people first and code second. As writer of the world's most popular Jupyter Notebook tutorial for 5 years running, I am an expert in communicating technical concepts with a variety of audiences. I confidently lead complex technical deliveries, plan multi-stage projects, own roadmaps, scope tasks, and manage, coach, and mentor engineers.
+Most of my recent experience is in the Python and JavaScript/TypeScript ecosystems, but I have been writing full stack code for over two decades, have a decade of experience in start-ups, large companies, and academia, and 5+ years in FinTech.
+I'm working towards roles like Engineering Manager, Head of Engineering, CTO."
         />
         <Showcase title="Published Articles">
           <Showpiece
