@@ -44,34 +44,6 @@ I'm working towards roles like Engineering Manager, Head of Engineering, CTO."
             url="https://www.dataquest.io/blog/settingwithcopywarning/"
           />
         </Showcase>
-        <Paragraph
-          title="Financial Developer at Beacon"
-          imgSrc="images/logos/logo-beacon.jpg"
-          body="Beacon Platform is a multi-award-winning FinTech start-up with international offices headquartered in New York, and in September 2017 I joined the London office. I assumed a client-facing full stack dev role developing core IP and integrated web apps, engaging in consulting projects, and providing leadership to more junior colleagues.
-My responsibilities keep me constantly engaged in the balance of simultaneous projects, client communications, enhancement and support requests, code reviews, demos, discussions, interviews, etc, and we primarily use Python, React/JavaScript, CSS/LESS, Git, with Jira for agile project management.
-Early on, I took joint-ownership of Glint, an incredibly cool key full stack UI project with total visibility internally and externally. Contributing heavily to its growth, working closely with management, and teaching, supporting, managing, working with and learning from the junior members of the team we hired to take Glint further has acted as a reflection of full product development.
-My role thankfully permits the freedom to work with and move between multiple internal/external teams, self-direct and prioritise, and engage management at all levels. I am also fortunate enough to be able to learn from the incredibly smart, driven group of individuals that make Beacon."
-        />
-        <Showcase title="Gymnastics around the world">
-          <Showpiece
-            title="Berlin"
-            thumbnail="images/gym/gym-berlin.jpg"
-            description="A lot of my shots require many takes before I'm satisfied, but in this case one evening by the river at East Side Gallery I got a nice blur effect from snapping a still from a video of the action instead"
-            url="https://www.instagram.com/p/BVHQRdGha1B/"
-          />
-          <Showpiece
-            title="Skopje"
-            thumbnail="images/gym/gym-skopje.jpg"
-            description="Handstands are a favourite of mine, especially when a back flip is not possible. I took this in a park in Macedonia's capital, much to the interest of several onlooking kids"
-            url="https://www.instagram.com/p/BU5DbhNhkEN/"
-          />
-          <Showpiece
-            title="Budapest"
-            thumbnail="images/gym/gym-budapest.jpg"
-            description="I try to find the right place to do a back flip in every country I visit. When shooting in popular locations, like this one in front of the Hungarian Parliament Building, you have to wait for just the right moment every single take"
-            url="https://www.instagram.com/p/BU97_sIBoZX/"
-          />
-        </Showcase>
         <Logos title="Professional Relationships">
           <Logo
             name="J.P. Morgan"
