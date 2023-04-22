@@ -31,9 +31,9 @@ const SocialButton: React.FC<SocialButtonProps> = ({ name, url, icon }) => {
 
 export default SocialButton;
 
-export const LinkedInButton = () => (
+export const LinkedInButton = ({ text }: { text?: string }) => (
   <SocialButton
-    name="LinkedIn"
+    name={text ?? "LinkedIn"}
     icon={faLinkedin}
     url="https://linkedin.com/in/benjaminpryke"
   />

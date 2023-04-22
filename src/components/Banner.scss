@@ -41,15 +41,11 @@
 @media only screen and (min-width: $screen-width-s) {
   .banner {
     box-sizing: inherit;
-
-    &:not(.showcase):not(.logos) {
-      padding: $section-vertical-padding 20%;
-    }
   }
 }
 
 // 20x + 1500 + 20x = 100x => 100x = 2500
-@media only screen and (min-width: $screen-width-xl) {
+@media only screen and (min-width: $screen-width-l) {
   .banner {
     padding: $section-vertical-padding calc((100% - #{$max-content-width}) / 2);
   }

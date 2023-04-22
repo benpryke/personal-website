@@ -10,6 +10,7 @@
   text-decoration: none;
   color: $primary-text-colour;
   white-space: nowrap;
+  width: fit-content;
 
   &:focus {
     animation: wave 0.2s ease-in;

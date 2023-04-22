@@ -15,10 +15,3 @@
     text-decoration: none;
   }
 }
-
-// 20x + 1500 + 20x = 100x => 100x = 2500
-@media only screen and (min-width: $screen-width-l) {
-  .showcase {
-    padding: $section-vertical-padding calc((100% - #{$max-content-width}) / 2);
-  }
-}
