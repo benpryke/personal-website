@@ -21,7 +21,7 @@ export default class App extends Component {
           title="Bio"
           body="I build simple solutions to complex problems by working at the intersection of engineering and management. By connecting big ideas to small details, I strive to simplify implementations, polish user experiences, and uplift the people and technology around me.
 Technology is about people first and code second. As writer of the world's most popular Jupyter Notebook tutorial for 5 years running, I am an expert in communicating technical concepts with a variety of audiences. I confidently lead complex technical deliveries, plan multi-stage projects, own roadmaps, scope tasks, and manage, coach, and mentor engineers.
-Most of my recent experience is in the Python and JavaScript/TypeScript ecosystems, but I have been writing full stack code for over two decades, have a decade of experience in start-ups, large companies, and academia, and 5+ years in FinTech.
+Most of my recent experience is in the Python and JavaScript/TypeScript ecosystems, but I have been writing full stack code for over two decades, have a decade of experience in start-ups, large companies, and academia, and 8+ years in FinTech.
 I'm working towards roles like Engineering Manager, Head of Engineering, CTO."
         />
         <Showcase title="Published Articles">
