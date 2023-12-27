@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Logos from "./components/Logos";
 import Logo from "./components/Logo";
+import Logos from "./components/Logos";
 import Paragraph from "./components/Paragraph";
 import Showcase from "./components/Showcase";
 import Showpiece from "./components/Showpiece";
@@ -42,6 +42,27 @@ I'm working towards roles like Engineering Manager, Head of Engineering, CTO."
             thumbnail="images/articles/article-settingwithcopywarning.png"
             description="A deep dive into everything there is to know about the most common (and most misunderstood) warning in pandas"
             url="https://www.dataquest.io/blog/settingwithcopywarning/"
+          />
+        </Showcase>
+        <Paragraph
+          title="Co-founder and CTO, Maeva"
+          body="Since 2020, I have worked with co-founder Natalie O'Neill to build Maeva, a product search engine that begins with a niche focus on the sunscreen market.
+At Maeva, we believe that online product search no longer meets user needs. No company lets you search across all vendors with advanced filters that truly fit the product category. We value consistent, high quality data accessible via a wide range of tailored filters.
+I am responsible for the technical implementation of the product vision, including the cloud architecture, data model, data pipeline, and user interfaces.
+Key tech: Firebase, GCP, React, JavaScript, TypeScript, Express, Python, Pandas, Docker, NoSQL"
+        />
+        <Showcase title="Recent Projects">
+          <Showpiece
+            title="Maeva: The SPF Search Engine"
+            thumbnail="images/projects/maeva.png"
+            description="Sunscreen search engine enabling users to search 1000s of products across multiple vendors with advanced filters; built on Firebase and GCP with React and Python"
+            url="https://meetmaeva.com/"
+          />
+          <Showpiece
+            title="Wortle: German Wordle"
+            thumbnail="images/projects/wortle.png"
+            description="German version of the popular game Wordle with German keyboard, desktop and mobile support, light and dark mode, and more; built predominantly in 1 day in React"
+            url="https://wortle.pages.dev/"
           />
         </Showcase>
         <Logos title="Professional Relationships">
