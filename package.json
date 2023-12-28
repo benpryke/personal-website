@@ -16,8 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
-    "predeploy": "yarn run build",
+    "prerender": "react-snap",
+    "predeploy": "yarn build && yarn prerender",
     "deploy": "gh-pages -b master -d build -r https://github.com/benpryke/benpryke.github.io.git",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -60,13 +60,5 @@
     "qs": "^6.5.3",
     "node-fetch": "^2.6.7",
     "nth-check": "^2.0.1"
-  },
-  "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--single-process"
-    ]
   }
 }
