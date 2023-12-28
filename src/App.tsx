@@ -62,7 +62,7 @@ Key tech: Firebase, GCP, React, JavaScript, TypeScript, Express, Python, Pandas,
             title="Wortle: German Wordle"
             thumbnail="images/projects/wortle.png"
             description="German version of the popular game Wordle with German keyboard, desktop and mobile support, light and dark mode, and more; built predominantly in 1 day in React"
-            url="https://wortle.pages.dev/"
+            url="https://wortle.xyz"
           />
         </Showcase>
         <Logos title="Professional Relationships">
