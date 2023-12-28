@@ -31,6 +31,8 @@ jobs:
 
       - name: Prerender
         uses: brycedorn/react-snap-action@v1.0.2
+        with:
+          output: build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
