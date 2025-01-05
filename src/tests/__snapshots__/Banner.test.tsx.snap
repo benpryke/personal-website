@@ -2,6 +2,6 @@
 
 exports[`Banner should match the snapshot 1`] = `
 "<section class=\\"banner cls faded-out\\" style=\\"color: red;\\">
-  <div></div>
+  <div style=\\"height: 100px;\\"></div>
 </section>"
 `;

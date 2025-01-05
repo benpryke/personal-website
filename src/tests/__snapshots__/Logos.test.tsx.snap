@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Logos should match the snapshot 1`] = `
-"<section class=\\"banner logos faded-in\\">
+"<section class=\\"banner logos faded-out\\">
   <h2>title</h2>
   <div class=\\"logo-collection\\">
     <div></div>

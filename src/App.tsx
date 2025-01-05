@@ -12,11 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Hero
-          name="Benjamin Pryke"
-          headshot={"images/headshot.jpg"}
-          fadeIn={false}
-        />
+        <Hero name="Benjamin Pryke" headshot={"images/headshot.jpg"} />
         <Paragraph
           title="Bio"
           body="I build simple solutions to complex problems by working at the intersection of engineering and management. By connecting big ideas to small details, I strive to simplify implementations, polish user experiences, and uplift the people and technology around me.
@@ -122,7 +118,7 @@ Key tech: Firebase, GCP, React, JavaScript, TypeScript, Express, Python, Pandas,
             url="http://www.anc.ed.ac.uk/machine-learning/"
           />
         </Logos>
-        <Footer fadeIn={false} />
+        <Footer />
       </div>
     );
   }

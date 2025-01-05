@@ -1,16 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
+import React, { useEffect, useRef, useState } from "react";
+
+export const FADE_IN_THRESHOLD = 0.1;
 
 export interface BannerProps {
   /** CSS class name for the Banner */
   className?: string;
   /** Whether or not to fade the Banner in as it's scrolled into view */
   fadeIn?: boolean;
-  /**
-   * How many pixels above the bottom of the viewport the Banner has to be before it fades in.
-   * This ensures that the animation is visible.
-   */
-  fadeInOffset?: number;
   /** CSS style */
   style?: React.CSSProperties;
   /** Banners must have children */
@@ -19,46 +16,44 @@ export interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({
   fadeIn = true,
-  fadeInOffset = 100,
   className,
   style,
   children,
 }) => {
-  const [fadedIn, setFadedIn] = useState(false);
-  const [fadedOut, setFadedOut] = useState(false);
+  const [fadedIn, setFadedIn] = useState(!fadeIn);
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (fadeIn) {
-      const triggerFadeIn = () => {
-        if (ref.current) {
-          const bannerTop = ref.current.offsetTop;
-          const windowBottom = window.scrollY + window.innerHeight;
-          const fadedIn = windowBottom >= bannerTop + fadeInOffset;
-
-          if (fadedIn) {
-            document.removeEventListener("scroll", triggerFadeIn);
-            setFadedIn(true);
-          } else if (!fadedOut) {
-            setFadedOut(true);
-          }
+    const element = ref.current;
+    const fadeIn = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setFadedIn(true);
         }
-      };
+      });
+    };
+    const options = {
+      threshold: FADE_IN_THRESHOLD,
+    };
+    const observer = new IntersectionObserver(fadeIn, options);
 
-      triggerFadeIn();
-      document.addEventListener("scroll", triggerFadeIn);
-      return () => document.removeEventListener("scroll", triggerFadeIn);
-    } else {
-      setFadedIn(true);
+    if (element) {
+      observer.observe(element);
     }
-  }, [fadeIn, fadeInOffset, fadedOut]);
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, [ref, setFadedIn]);
 
   return (
     <section
       ref={ref}
       className={classNames("banner", {
         [className ?? ""]: className,
-        "faded-out": fadedOut && !fadedIn,
+        "faded-out": !fadedIn,
         "faded-in": fadeIn && fadedIn,
       })}
       style={style}

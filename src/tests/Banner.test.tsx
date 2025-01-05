@@ -1,26 +1,53 @@
-import React from "react";
-import { act, render, waitFor } from "@testing-library/react";
-import pretty from "pretty";
 import "@testing-library/jest-dom";
 
-import Banner, { BannerProps } from "../components/Banner";
-import { setWindowSize, setScrollY } from "./utils";
+import pretty from "pretty";
+import React from "react";
 
-// fadeInOffset must be larger than windowSize or the Banner will fade in instantly
-// when scrolled even 1 pixel
+import { act, render, waitFor } from "@testing-library/react";
+
+import Banner, { BannerProps, FADE_IN_THRESHOLD } from "../components/Banner";
+import { setScrollY, setWindowSize } from "./utils";
+
 const windowSize = 900;
-const fadeInOffset = windowSize + 100;
+const bannerHeight = 100;
 const props: BannerProps = {
   className: "cls",
   fadeIn: true,
-  fadeInOffset,
   style: { color: "red" },
-  children: <div></div>,
+  children: <div style={{ height: bannerHeight }}></div>,
 };
+const originalIntersectionObserver = window.IntersectionObserver;
 
 describe("Banner", () => {
+  let fadeInCallback: IntersectionObserverCallback | undefined;
+  const triggerFadeIn = () => {
+    if (fadeInCallback) {
+      fadeInCallback(
+        [{ isIntersecting: true } as unknown as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      );
+    }
+  };
+
   beforeAll(() => {
     act(() => setWindowSize(windowSize, windowSize));
+  });
+
+  beforeEach(() => {
+    window.IntersectionObserver = jest
+      .fn()
+      .mockImplementation((callback, options) => {
+        fadeInCallback = callback;
+        return {
+          observe: () => null,
+          unobserve: () => null,
+          disconnect: () => null,
+        };
+      });
+  });
+
+  afterAll(() => {
+    window.IntersectionObserver = originalIntersectionObserver;
   });
 
   it("renders without crashing", () => {
@@ -33,10 +60,9 @@ describe("Banner", () => {
   });
 
   it("initially renders faded-in when visible and fadeIn is true", async () => {
-    const { container } = await waitFor(() =>
-      render(<Banner {...props} fadeInOffset={0} />)
-    );
+    const { container } = await waitFor(() => render(<Banner {...props} />));
     const banner = container.firstChild;
+    act(() => triggerFadeIn());
     expect(banner).toHaveClass("faded-in");
     expect(banner).not.toHaveClass("faded-out");
   });
@@ -48,7 +74,7 @@ describe("Banner", () => {
     expect(banner).toHaveClass("faded-out");
   });
 
-  it("fades in when fadeIn is true and the document is scrolled to fadeInOffset", async () => {
+  it("fades in when fadeIn is true and the document is scrolled to the fade threshold", async () => {
     const { container } = await waitFor(() => render(<Banner {...props} />));
     const banner = container.firstChild;
 
@@ -58,12 +84,13 @@ describe("Banner", () => {
     expect(banner).toHaveClass("faded-out");
 
     // Scroll far enough to trigger the fade-in
-    act(() => setScrollY(fadeInOffset));
+    act(() => setScrollY(bannerHeight * FADE_IN_THRESHOLD));
+    act(() => triggerFadeIn());
     expect(banner).toHaveClass("faded-in");
     expect(banner).not.toHaveClass("faded-out");
   });
 
-  it("does not fade in when fadeIn is false and the document is scrolled to fadeInOffset", async () => {
+  it("does not fade in when fadeIn is false and the document is scrolled to the fade threshold", async () => {
     const { container } = await waitFor(() =>
       render(<Banner {...props} fadeIn={false} />)
     );
@@ -75,7 +102,7 @@ describe("Banner", () => {
     expect(banner).not.toHaveClass("faded-out");
 
     // Scroll far enough to trigger the fade-in
-    act(() => setScrollY(fadeInOffset));
+    act(() => setScrollY(bannerHeight * FADE_IN_THRESHOLD));
     expect(banner).not.toHaveClass("faded-in");
     expect(banner).not.toHaveClass("faded-out");
   });

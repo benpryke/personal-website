@@ -1,13 +1,13 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import pretty from "pretty";
+import React from "react";
 
-import Footer from "../components/Footer";
+import { render } from "@testing-library/react";
+
 import { BannerProps } from "../components/Banner";
+import Footer from "../components/Footer";
 
 const props: BannerProps = {
   fadeIn: false,
-  fadeInOffset: 200,
   className: "cls",
   style: { color: "red" },
 };

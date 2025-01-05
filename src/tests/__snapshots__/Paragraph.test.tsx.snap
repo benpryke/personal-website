@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Paragraph should match the snapshot 1`] = `
-"<section class=\\"banner paragraph faded-in\\">
+"<section class=\\"banner paragraph faded-out\\">
   <div class=\\"paragraph-header\\">
     <h2>title</h2>
     <div class=\\"lazyload-wrapper \\">
