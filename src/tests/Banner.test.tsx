@@ -5,7 +5,7 @@ import React from "react";
 
 import { act, render, waitFor } from "@testing-library/react";
 
-import Banner, { BannerProps, FADE_IN_THRESHOLD } from "../components/Banner";
+import { Banner, BannerProps, FADE_IN_THRESHOLD } from "../components/Banner";
 import { setScrollY, setWindowSize } from "./utils";
 
 const windowSize = 900;

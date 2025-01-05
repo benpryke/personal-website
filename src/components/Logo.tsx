@@ -13,7 +13,7 @@ export interface LogoProps {
 /**
  * A logo for the Logos component
  */
-const Logo: React.FC<LogoProps> = ({ name, src, url }) => {
+export const Logo: React.FC<LogoProps> = ({ name, src, url }) => {
   return (
     <a className="logo" href={url} key={name}>
       <LazyLoad height={150} offset={100}>
@@ -22,5 +22,3 @@ const Logo: React.FC<LogoProps> = ({ name, src, url }) => {
     </a>
   );
 };
-
-export default Logo;

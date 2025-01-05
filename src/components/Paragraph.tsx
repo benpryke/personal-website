@@ -1,7 +1,7 @@
 import React from "react";
 import LazyLoad from "react-lazyload";
 
-import Banner, { BannerProps } from "./Banner";
+import { Banner, BannerProps } from "./Banner";
 
 export interface ParagraphProps extends BannerProps {
   /** Heading */
@@ -15,7 +15,7 @@ export interface ParagraphProps extends BannerProps {
 /**
  * A paragraph with a title
  */
-const Paragraph: React.FC<ParagraphProps> = ({
+export const Paragraph: React.FC<ParagraphProps> = ({
   title,
   body,
   imgSrc,
@@ -37,5 +37,3 @@ const Paragraph: React.FC<ParagraphProps> = ({
     </Banner>
   );
 };
-
-export default Paragraph;

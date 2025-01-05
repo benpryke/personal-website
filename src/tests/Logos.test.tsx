@@ -1,8 +1,9 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import pretty from "pretty";
+import React from "react";
 
-import Logos, { LogosProps } from "../components/Logos";
+import { render } from "@testing-library/react";
+
+import { Logos, LogosProps } from "../components/Logos";
 
 const props: LogosProps = {
   title: "title",

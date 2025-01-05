@@ -1,5 +1,6 @@
 import React from "react";
-import Banner, { BannerProps } from "./Banner";
+
+import { Banner, BannerProps } from "./Banner";
 import { LinkedInButton } from "./SocialButton";
 
 export interface HeroProps extends BannerProps {
@@ -14,7 +15,7 @@ export interface HeroProps extends BannerProps {
  *
  * Contains some text, a CTA, and a headshot.
  */
-const Hero: React.FC<HeroProps> = ({ name, headshot, ...rest }) => {
+export const Hero: React.FC<HeroProps> = ({ name, headshot, ...rest }) => {
   return (
     <Banner className="hero" {...rest}>
       <img src={headshot} alt={name} />
@@ -26,5 +27,3 @@ const Hero: React.FC<HeroProps> = ({ name, headshot, ...rest }) => {
     </Banner>
   );
 };
-
-export default Hero;

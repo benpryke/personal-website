@@ -1,18 +1,18 @@
 import React from "react";
 
-import Banner, { BannerProps } from "./Banner";
+import { Banner, BannerProps } from "./Banner";
 import {
-  LinkedInButton,
-  TwitterButton,
   GitHubButton,
-  StackOverflowButton,
   InstagramButton,
+  LinkedInButton,
+  StackOverflowButton,
+  TwitterButton,
 } from "./SocialButton";
 
 /**
  * Page footer
  */
-const Footer: React.FC<BannerProps> = (props) => {
+export const Footer: React.FC<BannerProps> = (props) => {
   return (
     <Banner className="footer" {...props}>
       <h2>Get in touch</h2>
@@ -26,5 +26,3 @@ const Footer: React.FC<BannerProps> = (props) => {
     </Banner>
   );
 };
-
-export default Footer;

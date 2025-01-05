@@ -15,7 +15,7 @@ export interface ShowpieceProps {
 /**
  * A piece to show off, with an image, a title and some text
  */
-const Showpiece: React.FC<ShowpieceProps> = ({
+export const Showpiece: React.FC<ShowpieceProps> = ({
   title,
   thumbnail,
   description,
@@ -33,5 +33,3 @@ const Showpiece: React.FC<ShowpieceProps> = ({
     </a>
   );
 };
-
-export default Showpiece;

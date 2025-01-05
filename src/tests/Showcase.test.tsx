@@ -1,8 +1,9 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import pretty from "pretty";
+import React from "react";
 
-import Showcase, { ShowcaseProps } from "../components/Showcase";
+import { render } from "@testing-library/react";
+
+import { Showcase, ShowcaseProps } from "../components/Showcase";
 
 const props: ShowcaseProps = {
   title: "title",

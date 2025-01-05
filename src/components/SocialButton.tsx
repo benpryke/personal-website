@@ -1,13 +1,14 @@
 import React from "react";
+
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLinkedin,
-  faTwitter,
   faGithub,
-  faStackOverflow,
   faInstagram,
+  faLinkedin,
+  faStackOverflow,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export interface SocialButtonProps {
   /** Name of the social network */
@@ -21,15 +22,17 @@ export interface SocialButtonProps {
 /**
  * A link to social media
  */
-const SocialButton: React.FC<SocialButtonProps> = ({ name, url, icon }) => {
+export const SocialButton: React.FC<SocialButtonProps> = ({
+  name,
+  url,
+  icon,
+}) => {
   return (
     <a href={url} className="social-button">
       <FontAwesomeIcon icon={icon} /> {name}
     </a>
   );
 };
-
-export default SocialButton;
 
 export const LinkedInButton = ({ text }: { text?: string }) => (
   <SocialButton

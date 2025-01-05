@@ -1,6 +1,6 @@
 import React from "react";
 
-import Banner, { BannerProps } from "./Banner";
+import { Banner, BannerProps } from "./Banner";
 
 export interface ShowcaseProps extends BannerProps {
   /** Heading */
@@ -12,7 +12,11 @@ export interface ShowcaseProps extends BannerProps {
 /**
  * A showcase of 1-3 showpieces, each represented via the Showpiece component
  */
-const Showcase: React.FC<ShowcaseProps> = ({ title, children, ...rest }) => {
+export const Showcase: React.FC<ShowcaseProps> = ({
+  title,
+  children,
+  ...rest
+}) => {
   return (
     <Banner className="showcase" {...rest}>
       <h2>{title}</h2>
@@ -20,5 +24,3 @@ const Showcase: React.FC<ShowcaseProps> = ({ title, children, ...rest }) => {
     </Banner>
   );
 };
-
-export default Showcase;

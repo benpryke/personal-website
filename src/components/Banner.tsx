@@ -14,7 +14,7 @@ export interface BannerProps {
   children?: React.ReactNode;
 }
 
-const Banner: React.FC<BannerProps> = ({
+export const Banner: React.FC<BannerProps> = ({
   fadeIn = true,
   className,
   style,
@@ -62,5 +62,3 @@ const Banner: React.FC<BannerProps> = ({
     </section>
   );
 };
-
-export default Banner;

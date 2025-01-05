@@ -1,8 +1,9 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import pretty from "pretty";
+import React from "react";
 
-import Paragraph, { ParagraphProps } from "../components/Paragraph";
+import { render } from "@testing-library/react";
+
+import { Paragraph, ParagraphProps } from "../components/Paragraph";
 
 const props: ParagraphProps = {
   title: "title",
