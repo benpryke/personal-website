@@ -1,9 +1,10 @@
 import "@testing-library/jest-dom";
 
 import pretty from "pretty";
-import React from "react";
+import React, { act } from "react";
 
-import { act, render, waitFor } from "@testing-library/react";
+import { waitFor } from "@testing-library/dom";
+import { render } from "@testing-library/react";
 
 import { Banner, BannerProps, FADE_IN_THRESHOLD } from "../components/Banner";
 import { setScrollY, setWindowSize } from "./utils";

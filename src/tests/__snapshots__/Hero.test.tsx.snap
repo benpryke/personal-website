@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Hero should match the snapshot 1`] = `
-"<section class=\\"banner cls\\" style=\\"color: red;\\"><img src=\\"url\\" alt=\\"name\\">
+"<section class=\\"banner cls\\" style=\\"color: red;\\"><img alt=\\"name\\" src=\\"url\\">
   <div class=\\"text\\">
     <h1>Hello, I'm Ben Pryke</h1>
     <h2>Senior Lead Engineer</h2><a href=\\"https://linkedin.com/in/benjaminpryke\\" class=\\"social-button\\"><svg aria-hidden=\\"true\\" focusable=\\"false\\" data-prefix=\\"fab\\" data-icon=\\"linkedin\\" class=\\"svg-inline--fa fa-linkedin \\" role=\\"img\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 448 512\\">
