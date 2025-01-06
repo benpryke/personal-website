@@ -21,7 +21,7 @@ export const Banner: React.FC<BannerProps> = ({
   children,
 }) => {
   const [fadedIn, setFadedIn] = useState(!fadeIn);
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = ref.current;
