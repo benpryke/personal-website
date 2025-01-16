@@ -3,7 +3,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { Showcase, ShowcaseProps } from "../components/Showcase";
+import { Showcase, type ShowcaseProps } from "../components/Showcase";
 
 const props: ShowcaseProps = {
   title: "title",

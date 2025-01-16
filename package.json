@@ -3,14 +3,17 @@
   "version": "0.1.1",
   "homepage": "https://www.benpryke.com",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "vite build",
+    "postbuild": "yarn prerender",
+    "preview": "vite preview",
     "prerender": "react-snap",
-    "predeploy": "yarn build && yarn prerender",
-    "deploy": "gh-pages -b master -d build -r https://github.com/benpryke/benpryke.github.io.git",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -b master -d dist -r https://github.com/benpryke/benpryke.github.io.git",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage --watch=false"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -25,32 +28,35 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
-    "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
     "@types/pretty": "^2.0.3",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.8",
     "gh-pages": "^6.3.0",
-    "node-sass": "^8.0.0",
+    "jsdom": "^26.0.0",
     "prettier": "^3.4.2",
     "pretty": "^2.0.0",
-    "react-scripts": "^5.0.1",
     "react-snap": "^1.23.0",
-    "ts-jest": "^29.2.5"
+    "sass-embedded": "^1.83.1",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
   },
   "resolutions": {
     "minimist": "^1.2.6",
     "qs": "^6.5.3",
     "node-fetch": "^2.6.7",
-    "nth-check": "^2.0.1"
+    "nth-check": "^2.0.1",
+    "puppeteer": "^13"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    ">0.1%"
+  ],
+  "reactSnap": {
+    "source": "dist"
+  }
 }

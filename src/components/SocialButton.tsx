@@ -1,12 +1,12 @@
 import React from "react";
 
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faGithub,
   faInstagram,
   faLinkedin,
   faStackOverflow,
-  faTwitter,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -15,8 +15,8 @@ export interface SocialButtonProps {
   name: string;
   /** URL to link to */
   url: string;
-  /** FontAwesome icon class name */
-  icon: IconProp;
+  /** FontAwesome icon */
+  icon: IconDefinition;
 }
 
 /**
@@ -29,7 +29,7 @@ export const SocialButton: React.FC<SocialButtonProps> = ({
 }) => {
   return (
     <a href={url} className="social-button">
-      <FontAwesomeIcon icon={icon} /> {name}
+      <FontAwesomeIcon icon={icon} /> <span>{name}</span>
     </a>
   );
 };
@@ -44,7 +44,7 @@ export const LinkedInButton = ({ text }: { text?: string }) => (
 export const TwitterButton = () => (
   <SocialButton
     name="Twitter"
-    icon={faTwitter}
+    icon={faXTwitter}
     url="https://twitter.com/BenjaminPryke"
   />
 );

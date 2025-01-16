@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Logos should match the snapshot 1`] = `
-"<section class=\\"banner logos faded-out\\">
+exports[`Logos > should match the snapshot 1`] = `
+"<section class="banner logos faded-out">
   <h2>title</h2>
-  <div class=\\"logo-collection\\">
+  <div class="logo-collection">
     <div></div>
   </div>
 </section>"

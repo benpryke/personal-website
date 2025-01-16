@@ -3,7 +3,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { Paragraph, ParagraphProps } from "../components/Paragraph";
+import { Paragraph, type ParagraphProps } from "../components/Paragraph";
 
 const props: ParagraphProps = {
   title: "title",

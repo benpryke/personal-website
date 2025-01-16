@@ -3,7 +3,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { BannerProps } from "../components/Banner";
+import type { BannerProps } from "../components/Banner";
 import { Footer } from "../components/Footer";
 
 const props: BannerProps = {

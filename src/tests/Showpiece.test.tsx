@@ -3,7 +3,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { Showpiece, ShowpieceProps } from "../components/Showpiece";
+import { Showpiece, type ShowpieceProps } from "../components/Showpiece";
 
 const props: ShowpieceProps = {
   title: "title",

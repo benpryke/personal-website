@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Banner, BannerProps } from "./Banner";
+import { Banner, type BannerProps } from "./Banner";
 import { LazyLoad } from "./LazyLoad";
 
 export interface ParagraphProps extends BannerProps {

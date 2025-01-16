@@ -2,11 +2,16 @@ import "@testing-library/jest-dom";
 
 import pretty from "pretty";
 import React, { act } from "react";
+import { vi } from "vitest";
 
 import { waitFor } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 
-import { Banner, BannerProps, FADE_IN_THRESHOLD } from "../components/Banner";
+import {
+  Banner,
+  type BannerProps,
+  FADE_IN_THRESHOLD,
+} from "../components/Banner";
 import { setScrollY, setWindowSize } from "./utils";
 
 const windowSize = 900;
@@ -25,7 +30,7 @@ describe("Banner", () => {
     if (fadeInCallback) {
       fadeInCallback(
         [{ isIntersecting: true } as unknown as IntersectionObserverEntry],
-        {} as IntersectionObserver
+        {} as IntersectionObserver,
       );
     }
   };
@@ -35,7 +40,7 @@ describe("Banner", () => {
   });
 
   beforeEach(() => {
-    window.IntersectionObserver = jest
+    window.IntersectionObserver = vi
       .fn()
       .mockImplementation((callback, options) => {
         fadeInCallback = callback;
@@ -93,7 +98,7 @@ describe("Banner", () => {
 
   it("does not fade in when fadeIn is false and the document is scrolled to the fade threshold", async () => {
     const { container } = await waitFor(() =>
-      render(<Banner {...props} fadeIn={false} />)
+      render(<Banner {...props} fadeIn={false} />),
     );
     const banner = container.firstChild;
 

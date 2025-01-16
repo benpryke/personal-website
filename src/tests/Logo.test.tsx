@@ -3,7 +3,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { Logo, LogoProps } from "../components/Logo";
+import { Logo, type LogoProps } from "../components/Logo";
 
 const props: LogoProps = {
   name: "name",

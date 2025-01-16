@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Banner, BannerProps } from "./Banner";
+import { Banner, type BannerProps } from "./Banner";
 import { LinkedInButton } from "./SocialButton";
 
 export interface HeroProps extends BannerProps {

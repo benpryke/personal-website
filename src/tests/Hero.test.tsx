@@ -3,7 +3,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { Hero, HeroProps } from "../components/Hero";
+import { Hero, type HeroProps } from "../components/Hero";
 
 const props: HeroProps = {
   name: "name",
