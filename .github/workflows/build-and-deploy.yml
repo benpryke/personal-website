@@ -54,16 +54,16 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
+      - name: Test
+        run: yarn test
+
       - name: Build
         run: yarn build
-
-      - name: Prerender
-        run: yarn prerender
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master
-          folder: build
+          folder: dist
           token: ${{ secrets.DEPLOY_TOKEN }}
           repository-name: benpryke/benpryke.github.io
