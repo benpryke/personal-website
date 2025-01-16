@@ -12,8 +12,7 @@ permissions:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: composite
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -36,13 +35,13 @@ jobs:
             xdg-utils wget
 
       - name: Add react-snap Puppeteer configuration
-        id: info
         uses: jaywcjlove/github-action-package@main
         with:
           path: package.json
           data: |
             {
               "reactSnap": {
+                "source": "dist",
                 "puppeteerArgs": [
                   "--no-sandbox",
                   "--disable-setuid-sandbox",
