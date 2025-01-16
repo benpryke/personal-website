@@ -1,6 +1,6 @@
 # Ben Pryke - Personal Website
 
-This project contains the source for my personal website bootstrapped with [Create React App](https://github.com/facebook/create-react-app), hosted on [GitHub Pages](https://pages.github.com/), and available at [benpryke.com](https://benpryke.com).
+This project contains the source for my personal website built with React and TypeScript using vite tooling hosted on [GitHub Pages](https://pages.github.com/), and available at [benpryke.com](https://benpryke.com).
 
 ## Deployment configuration
 
