@@ -1,5 +1,5 @@
 section.banner.hero {
-  background-color: $background-colour;
+  background-color: var(--background-colour);
   display: grid;
   grid-template: 1.3fr 1fr / 1fr;
   grid-gap: 1rem;
@@ -36,7 +36,7 @@ section.banner.hero {
   }
 }
 
-@media only screen and (min-width: $screen-width-s) {
+@media only screen and (--screen-width-s) {
   section.banner.hero {
     grid-template: 1fr / 1fr 1fr;
 
@@ -64,13 +64,13 @@ section.banner.hero {
   }
 }
 
-@media only screen and (min-width: $screen-width-m) {
+@media only screen and (screen-width-m) {
   section.banner.hero h1 {
     font-size: 4.5rem;
   }
 }
 
-@media only screen and (min-width: $screen-width-l) {
+@media only screen and (screen-width-l) {
   section.banner.hero h1 {
     font-size: 5rem;
   }

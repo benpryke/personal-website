@@ -9,6 +9,8 @@ import {
   TwitterButton,
 } from "./SocialButton";
 
+import "./footer.css";
+
 /**
  * Page footer
  */

@@ -1,4 +1,4 @@
-import "./index.scss";
+import "./styles/index.css";
 
 import React, { StrictMode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";

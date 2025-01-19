@@ -22,8 +22,8 @@
   hyphens: auto;
 }
 
-// From medium screen widths, we can display the title and image on the same line
-@media only screen and (min-width: $screen-width-xs) {
+/* From medium screen widths, we can display the title and image on the same line */
+@media only screen and (--screen-width-xs) {
   .paragraph-header {
     flex-direction: row;
 
@@ -34,8 +34,8 @@
   }
 }
 
-// Don't hyphenate on larger screens
-@media only screen and (min-width: $screen-width-m) {
+/* Don't hyphenate on larger screens */
+@media only screen and (--screen-width-m) {
   .paragraph p {
     hyphens: none;
   }

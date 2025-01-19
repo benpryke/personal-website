@@ -6,9 +6,9 @@
   padding: 3px 10px;
   border-radius: 5px;
   border: none;
-  background: $primary-colour-light;
+  background: var(--primary-colour-light);
   text-decoration: none;
-  color: $primary-text-colour;
+  color: var(--primary-text-colour);
   white-space: nowrap;
   width: fit-content;
 
@@ -17,7 +17,7 @@
   }
 
   &:hover svg {
-    color: $primary-colour;
+    color: var(--primary-colour);
     transition: all 0.2s ease;
   }
 
@@ -26,17 +26,17 @@
   }
 }
 
-// Button click animation
+/* Button click animation */
 @keyframes wave {
   0% {
-    box-shadow: 0 0 0 0 rgba($primary-colour, 0);
+    box-shadow: 0 0 0 0 rgba(var(--primary-colour), 0);
   }
 
   50% {
-    box-shadow: 0 0 0 3px rgba($primary-colour, 0.33);
+    box-shadow: 0 0 0 3px rgba(var(--primary-colour), 0.33);
   }
 
   100% {
-    box-shadow: 0 0 0 4px rgba($primary-colour, 0);
+    box-shadow: 0 0 0 4px rgba(var(--primary-colour), 0);
   }
 }

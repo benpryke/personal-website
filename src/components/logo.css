@@ -12,8 +12,8 @@
   }
 }
 
-// Bigger screens get bigger logos
-@media only screen and (min-width: $screen-width-m) {
+/* Bigger screens get bigger logos */
+@media only screen and (--screen-width-m) {
   .logo img {
     width: 200px;
     padding: 50px 30px;

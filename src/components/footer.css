@@ -3,5 +3,5 @@
   min-height: 0;
   padding-top: 80px !important;
   padding-bottom: 120px !important;
-  background: $background-colour;
+  background: var(--background-colour);
 }

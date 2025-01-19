@@ -1,3 +1,5 @@
+import "./logo.css";
+
 import React from "react";
 
 import { LazyLoad } from "./LazyLoad";

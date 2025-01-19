@@ -1,3 +1,5 @@
+import "./social-button.css";
+
 import React from "react";
 
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";

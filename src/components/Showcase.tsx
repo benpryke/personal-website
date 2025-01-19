@@ -2,6 +2,8 @@ import React from "react";
 
 import { Banner, type BannerProps } from "./Banner";
 
+import "./showcase.css";
+
 export interface ShowcaseProps extends BannerProps {
   /** Heading */
   title: string;

@@ -1,0 +1,53 @@
+.banner {
+  position: relative;
+  min-width: var(--min-content-width);
+  max-width: var(--max-content-width);
+  min-height: var(--min-section-height);
+  margin: auto;
+  padding: var(--section-vertical-padding) 10%;
+  text-align: center;
+  box-sizing: border-box;
+
+  & > h2 {
+    margin: 0 0 30px;
+  }
+
+  & > p {
+    color: var(--primary-text-colour);
+  }
+}
+
+.faded-out {
+  opacity: 0;
+}
+
+.faded-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@media only screen and (--screen-width-s) {
+  .banner {
+    box-sizing: inherit;
+  }
+}
+
+/* 20x + 1500 + 20x = 100x => 100x = 2500 */
+@media only screen and (--screen-width-l) {
+  .banner {
+    padding: var(--section-vertical-padding)
+      calc((100% - var(--max-content-width)) / 2);
+  }
+}

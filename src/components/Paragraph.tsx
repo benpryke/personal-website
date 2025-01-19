@@ -3,6 +3,8 @@ import React from "react";
 import { Banner, type BannerProps } from "./Banner";
 import { LazyLoad } from "./LazyLoad";
 
+import "./paragraph.css";
+
 export interface ParagraphProps extends BannerProps {
   /** Heading */
   title: string;

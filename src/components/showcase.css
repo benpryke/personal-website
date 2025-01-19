@@ -1,5 +1,5 @@
 .showcase {
-  background: $background-colour;
+  background: var(--background-colour);
   padding-bottom: 80px;
 }
 

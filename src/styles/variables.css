@@ -1,0 +1,12 @@
+:root {
+  --primary-colour: #50bebe;
+  --primary-colour-light: #b3ddd9;
+  --background-colour: #f2f6f9;
+  --primary-text-colour: #474747;
+
+  --min-content-width: 360px;
+  --max-content-width: 1500px;
+
+  --min-section-height: 200px;
+  --section-vertical-padding: 50px;
+}

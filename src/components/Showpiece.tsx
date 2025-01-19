@@ -1,3 +1,5 @@
+import "./showpiece.css";
+
 import React from "react";
 
 import { LazyLoad } from "./LazyLoad";

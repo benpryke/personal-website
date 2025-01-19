@@ -1,0 +1,6 @@
+/* eslint-disable-next-line */
+@custom-media --screen-width-xs (min-width: 450px);
+@custom-media --screen-width-s (min-width: 768px);
+@custom-media --screen-width-m (min-width: 900px);
+@custom-media --screen-width-l (min-width: 1800px);
+@custom-media --screen-width-xl (min-width: 2500px);

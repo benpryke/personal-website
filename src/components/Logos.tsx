@@ -2,6 +2,8 @@ import React from "react";
 
 import { Banner, type BannerProps } from "./Banner";
 
+import "./logos.css";
+
 export interface LogosProps extends BannerProps {
   /** Heading */
   title: string;

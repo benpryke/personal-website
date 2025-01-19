@@ -3,6 +3,8 @@ import React from "react";
 import { Banner, type BannerProps } from "./Banner";
 import { LinkedInButton } from "./SocialButton";
 
+import "./hero.css";
+
 export interface HeroProps extends BannerProps {
   /** Name of our protagonist */
   name: string;
