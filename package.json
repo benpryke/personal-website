@@ -42,7 +42,7 @@
     "pretty": "^2.0.0",
     "react-snap": "^1.23.0",
     "typescript": "^5.7.2",
-    "vite": "^6.0.7",
+    "vite": "^6.0.9",
     "vitest": "^2.1.8"
   },
   "resolutions": {
