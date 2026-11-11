@@ -1,24 +1,24 @@
-import React from "react";
-
-import { Banner, type BannerProps } from "./Banner";
-
 import "./logos.css";
 
-export interface LogosProps extends BannerProps {
-  /** Heading */
-  title: string;
-  /** Logos */
-  children: React.ReactNode;
+import React from "react";
+
+import type { Logo } from "../content";
+
+export interface LogosProps {
+  logos: Logo[];
 }
 
 /**
- * A set of logos, each represented via the Logo component
+ * A grid of organisation logos
  */
-export const Logos: React.FC<LogosProps> = ({ title, children, ...rest }) => {
-  return (
-    <Banner className="logos" {...rest}>
-      <h2>{title}</h2>
-      <div className="logo-collection">{children}</div>
-    </Banner>
-  );
-};
+export const Logos: React.FC<LogosProps> = ({ logos }) => (
+  <ul className="logos">
+    {logos.map(({ name, src, url }) => (
+      <li key={name}>
+        <a href={url}>
+          <img src={src} alt={name} loading="lazy" />
+        </a>
+      </li>
+    ))}
+  </ul>
+);

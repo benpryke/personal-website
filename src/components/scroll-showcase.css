@@ -1,0 +1,214 @@
+.showcase-list {
+  display: grid;
+  gap: 4rem;
+  margin: 0;
+  padding: var(--title-gap) 0 0;
+  list-style: none;
+}
+
+.showcase-item {
+  h3 {
+    margin: 1.75rem 0 1rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    max-width: 34rem;
+    color: var(--muted);
+  }
+
+  p + p {
+    margin-top: 0.875rem;
+  }
+}
+
+.showcase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 0.8125rem;
+    color: var(--text);
+  }
+}
+
+.showcase-stage {
+  display: none;
+}
+
+/* Narrow screens: each item rises into view the first time it's reached */
+@media (--below-screen-width-m) and (prefers-reduced-motion: no-preference) {
+  .showcase-item {
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+
+    &:not(.is-revealed) {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  }
+}
+
+@media (--screen-width-m) {
+  .showcase {
+    --item-height: 70vh;
+    --stage-height: calc(100vh - var(--nav-height));
+    --stage-gap: 1rem;
+    --meta-height: 1.5rem;
+    /* The frame sits above the stage's centre by half the meta row beneath it */
+    --frame-offset: calc((var(--stage-gap) + var(--meta-height)) / 2);
+    --centring: calc((var(--stage-height) - var(--item-height)) / 2);
+    --tail: calc(var(--centring) + var(--frame-offset));
+
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(3rem, 6vw, 5rem);
+    /* Let what follows overlap the empty tail, which only exists to hold the stage */
+    margin-bottom: calc(-1 * var(--tail));
+  }
+
+  /*
+   * The stage pins when the list starts and unpins when it ends; pad the list
+   * so the first and last items are level with the frame at those points.
+   * The top padding replaces the title gap, never falling below it.
+   */
+  .showcase-list {
+    gap: 0;
+    padding-top: max(var(--title-gap), var(--centring) - var(--frame-offset));
+    padding-bottom: var(--tail);
+  }
+
+  .showcase-inline {
+    display: none;
+  }
+
+  /* Each item holds the stage long enough to read; inactive items recede */
+  .showcase-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: var(--item-height);
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--line);
+    opacity: 0.35;
+    transition:
+      opacity 0.6s var(--ease-out),
+      border-color 0.6s var(--ease-out);
+
+    &.is-active {
+      opacity: 1;
+      border-color: var(--accent);
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  .showcase-stage {
+    position: sticky;
+    top: var(--nav-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--stage-gap);
+    height: var(--stage-height);
+  }
+
+  .showcase-link {
+    display: block;
+    border-radius: var(--radius-l);
+  }
+
+  /* Every image is stacked in the window; only the active one is opaque */
+  .showcase-stage .frame-body img {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(1.02);
+    transition:
+      opacity 0.7s var(--ease-out),
+      filter 0.7s var(--ease-out),
+      transform 0.9s var(--ease-out);
+
+    &.is-active {
+      opacity: 1;
+      filter: none;
+      transform: none;
+    }
+  }
+
+  .showcase-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: var(--meta-height);
+    font-size: 0.875rem;
+    color: var(--muted);
+
+    > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+
+      svg {
+        font-size: 0.8em;
+        transition: transform 0.25s var(--ease-out);
+      }
+
+      &:hover svg {
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  .showcase-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+
+    button {
+      width: 0.375rem;
+      height: 0.375rem;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: #d4d4d8;
+      cursor: pointer;
+      transition:
+        width 0.4s var(--ease-out),
+        background-color 0.4s ease;
+
+      &.is-active {
+        width: 1.25rem;
+        background: var(--ink);
+      }
+    }
+
+    span {
+      margin-left: 0.75rem;
+      font: 0.8125rem var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+  }
+}

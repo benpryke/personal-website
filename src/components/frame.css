@@ -1,0 +1,105 @@
+.frame {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 5%, 3rem);
+  border-radius: var(--radius-l);
+  box-shadow: inset 0 0 0 1px var(--line);
+  background:
+    radial-gradient(60% 70% at 12% 8%, var(--g1), transparent 70%),
+    radial-gradient(55% 60% at 92% 12%, var(--g3), transparent 70%),
+    radial-gradient(70% 70% at 60% 105%, var(--g2), transparent 70%),
+    #f3f2ee;
+  transition:
+    --g1 0.9s ease,
+    --g2 0.9s ease,
+    --g3 0.9s ease;
+
+  /* Film grain so the gradients read as material rather than flat fills */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+.frame[data-tone="0"] {
+  --g1: #7fd8cb;
+  --g2: #9cc9ff;
+  --g3: #d5f2c2;
+}
+
+.frame[data-tone="1"] {
+  --g1: #f7a978;
+  --g2: #f19bb3;
+  --g3: #f6d77a;
+}
+
+.frame[data-tone="2"] {
+  --g1: #b6a4f6;
+  --g2: #8fd0f5;
+  --g3: #f3b3d9;
+}
+
+.frame[data-tone="3"] {
+  --g1: #c5e68a;
+  --g2: #7fd3c0;
+  --g3: #f7e48f;
+}
+
+.frame-window {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  background: var(--card);
+  box-shadow:
+    0 1px 2px rgb(9 9 11 / 0.06),
+    0 18px 40px -12px rgb(9 9 11 / 0.18);
+}
+
+.frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--line);
+  font: 0.8125rem/1 var(--font-mono);
+  color: var(--muted);
+}
+
+/* Three dots: one per repeating tile, shifted so the first dot sits flush left */
+.frame-dots {
+  --dot: 0.5rem;
+  --step: 0.875rem;
+  flex: none;
+  width: calc(2 * var(--step) + var(--dot));
+  height: var(--dot);
+  background: radial-gradient(circle, #d4d4d8 calc(var(--dot) / 2), transparent calc(var(--dot) / 2 + 0.02rem))
+    calc((var(--dot) - var(--step)) / 2) 0 / var(--step) var(--dot) repeat-x;
+}
+
+.frame-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.frame-body {
+  position: relative;
+  aspect-ratio: 16 / 10;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}

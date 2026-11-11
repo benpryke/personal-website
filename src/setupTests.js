@@ -1,4 +1,5 @@
 import { vi } from "vitest";
+import "@testing-library/jest-dom/vitest";
 
 // Filter CSS parse errors from test output
 const consoleErrorFn = console.error;
