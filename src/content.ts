@@ -27,6 +27,22 @@ export interface Logo extends Link {
   src: string;
 }
 
+/** Bundled images; Vite gives each a content-hashed URL, so a changed image is never served stale */
+const images = import.meta.glob<string>("./assets/images/**/*", {
+  eager: true,
+  import: "default",
+  query: "?url",
+});
+
+/** URL of an image under src/assets/images */
+export const image = (path: string): string => {
+  const url = images[`./assets/images/${path}`];
+  if (!url) throw new Error(`Missing image: ${path}`);
+  return url;
+};
+
+export const headshot = image("headshot.jpg");
+
 export const socials = {
   linkedIn: {
     name: "LinkedIn",
@@ -61,7 +77,7 @@ export const projects: ShowcaseItem[] = [
   {
     name: "rnblox: Building Blocks for Your Training Blocks",
     url: "https://rnblox.com",
-    image: "images/projects/rnblox.png",
+    image: image("projects/rnblox.png"),
     paragraphs: [
       "Strava's GPS tracking and voice cues weren't enough for me, so I built my own and took 5 minutes off my race day half marathon PB.",
       "Live voice and tone cues coach you through every rep, so your phone can stay in your pocket, while GPS tracking discards coarse fixes and measures distance along the route.",
@@ -71,7 +87,7 @@ export const projects: ShowcaseItem[] = [
   {
     name: "Maeva: The SPF Search Engine",
     url: "https://meetmaeva.com/",
-    image: "images/projects/maeva.png",
+    image: image("projects/maeva.png"),
     paragraphs: [
       "Since 2020, I have worked with co-founder Natalie O'Neill to build Maeva, a product search engine that begins with a niche focus on the sunscreen market.",
       "At Maeva, we believe that online product search no longer meets user needs. No company lets you search across all vendors with advanced filters that truly fit the product category. We value consistent, high quality data accessible via a wide range of tailored filters.",
@@ -82,7 +98,7 @@ export const projects: ShowcaseItem[] = [
   {
     name: "Wortle: German Wordle",
     url: "https://wortle.xyz",
-    image: "images/projects/wortle.png",
+    image: image("projects/wortle.png"),
     paragraphs: [
       "German version of the popular game Wordle with German keyboard, desktop and mobile support, light and dark mode, and more; built predominantly in a day.",
     ],
@@ -94,7 +110,7 @@ export const articles: ShowcaseItem[] = [
   {
     name: "Advanced Jupyter Notebooks: A Tutorial",
     url: "https://www.dataquest.io/blog/advanced-jupyter-notebooks-tutorial/",
-    image: "images/articles/article-jupyter-advanced.png",
+    image: image("articles/article-jupyter-advanced.png"),
     paragraphs: [
       "Popular with serious Jupyter users, this is an adventure through scripted execution, reporting pipelines, working with databases, and much more.",
     ],
@@ -102,7 +118,7 @@ export const articles: ShowcaseItem[] = [
   {
     name: "Jupyter Notebook for Beginners: A Tutorial",
     url: "https://www.dataquest.io/blog/jupyter-notebook-tutorial/",
-    image: "images/articles/article-jupyter-beginners.png",
+    image: image("articles/article-jupyter-beginners.png"),
     paragraphs: [
       "#1 Jupyter Notebook tutorial on Google since 2017. Exploring the basics of creating a Jupyter Notebook, the important terminology, and how easily notebooks can be shared and published online.",
     ],
@@ -110,7 +126,7 @@ export const articles: ShowcaseItem[] = [
   {
     name: "Understanding SettingwithCopyWarning in pandas",
     url: "https://www.dataquest.io/blog/settingwithcopywarning/",
-    image: "images/articles/article-settingwithcopywarning.png",
+    image: image("articles/article-settingwithcopywarning.png"),
     paragraphs: [
       "A deep dive into everything there is to know about the most common (and most misunderstood) warning in pandas.",
     ],
@@ -120,7 +136,7 @@ export const articles: ShowcaseItem[] = [
 const logo = (name: string, file: string, url: string): Logo => ({
   name,
   url,
-  src: `images/logos/logo-${file}`,
+  src: image(`logos/logo-${file}`),
 });
 
 export const logos: Logo[] = [

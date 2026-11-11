@@ -3,7 +3,14 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 
 import { App } from "../App";
-import { articles, navLinks, projects } from "../content";
+import { articles, image, navLinks, projects } from "../content";
+
+describe("image", () => {
+  it("resolves bundled images and rejects missing ones", () => {
+    expect(image("headshot.jpg")).toMatch(/headshot.*\.jpg/);
+    expect(() => image("nope.png")).toThrow("Missing image: nope.png");
+  });
+});
 
 describe("App", () => {
   beforeEach(() => {

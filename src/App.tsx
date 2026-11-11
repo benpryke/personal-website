@@ -7,7 +7,7 @@ import { Logos } from "./components/Logos";
 import { Nav } from "./components/Nav";
 import { ScrollShowcase } from "./components/ScrollShowcase";
 import { Section } from "./components/Section";
-import { articles, logos, navLinks, projects, socials } from "./content";
+import { articles, headshot, logos, navLinks, projects, socials } from "./content";
 
 const { linkedIn, gitHub } = socials;
 
@@ -38,7 +38,7 @@ export const App: React.FC = () => (
             </Button>
           </>
         }
-        headshot="images/headshot.jpg"
+        headshot={headshot}
         name="Benjamin Pryke"
         facts={["Lifelong Programmer", "Double co-founder", "#1 on Google for 10 years"]}
       />
