@@ -24,10 +24,14 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
 }) => (
   <a href={href} className={`button button-${variant}`}>
-    {icon ? <FontAwesomeIcon icon={icon} /> : null}
+    {icon ? <FontAwesomeIcon icon={icon} widthAuto={true} /> : null}
     {children}
     {variant === "primary" ? (
-      <FontAwesomeIcon icon={faArrowRight} className="button-arrow" />
+      <FontAwesomeIcon
+        icon={faArrowRight}
+        widthAuto={true}
+        className="button-arrow"
+      />
     ) : null}
   </a>
 )

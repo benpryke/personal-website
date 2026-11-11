@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
-import { type Mock, vi } from "vitest"
+import { type Mock, vi } from "vite-plus/test"
 
 import {
   ACTIVE_BAND,
@@ -93,13 +93,13 @@ describe("ScrollShowcase", () => {
     expect(images[1]).toHaveClass("is-active")
     expect(stage()).toHaveTextContent("02 / 02")
     expect(stage().querySelector(".frame")).toHaveAttribute("data-tone", "2")
+    // The stage is hidden below the medium breakpoint, which jsdom doesn't evaluate
     expect(
-      screen.getByRole("link", { name: /Visit second\.dev/ }),
+      screen.getByRole("link", { name: /Visit second\.dev/, hidden: true }),
     ).toHaveAttribute("href", "https://www.second.dev/blog/post/")
-    expect(screen.getByRole("button", { name: "Show Second" })).toHaveAttribute(
-      "aria-current",
-      "true",
-    )
+    expect(
+      screen.getByRole("button", { name: "Show Second", hidden: true }),
+    ).toHaveAttribute("aria-current", "true")
   })
 
   it("ignores items leaving the band", () => {
@@ -129,7 +129,9 @@ describe("ScrollShowcase", () => {
     const scrollIntoView = vi.fn()
     Element.prototype.scrollIntoView = scrollIntoView
 
-    fireEvent.click(screen.getByRole("button", { name: "Show Second" }))
+    fireEvent.click(
+      screen.getByRole("button", { name: "Show Second", hidden: true }),
+    )
 
     expect(scrollIntoView).toHaveBeenCalledWith({ block: "center" })
     expect(scrollIntoView.mock.contexts[0]).toBe(

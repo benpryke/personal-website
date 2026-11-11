@@ -133,7 +133,7 @@ export const ScrollShowcase: React.FC<ScrollShowcaseProps> = ({
         <div className="showcase-meta">
           <a href={current.url}>
             {`Visit ${displayUrl(current.url).split("/")[0]}`}
-            <FontAwesomeIcon icon={faArrowRight} />
+            <FontAwesomeIcon icon={faArrowRight} widthAuto={true} />
           </a>
           <div className="showcase-progress">
             {items.map((item, i) => (

@@ -1,0 +1,43 @@
+# Dependency Settings
+saveExact: true
+
+publicHoistPattern:
+  - "*@biomejs/*"
+  - "*biome*"
+
+# Security Restrictions
+minimumReleaseAge: 10080 # 7 days (10080 minutes)
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 10080 # Ignore trust policy checks for packages older than 7 days
+trustLockfile: true # Trust packages already locked in pnpm-lock.yaml
+
+# Additional Security Enhancements
+blockExoticSubdeps: true # Block transitive dependencies using non-registry URLs or git refs
+shellEmulator: true # Run lifecycle scripts via cross-platform JS emulator to prevent raw shell execution
+
+# Allowed build scripts
+allowBuilds:
+  "@biomejs/biome": true
+  esbuild: true
+  puppeteer: false # Skip its Chromium download; scripts/prerender.js uses an installed Chrome
+
+overrides:
+  # react-snap ships puppeteer 1.x, which can't launch a modern Chromium
+  puppeteer: "^13"
+  # Vite+ (set up by vp migrate): vite resolves to its bundled core
+  vite@*: "catalog:"
+  vitest@*: "catalog:"
+
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
+  vitest: 5.0.5
+  vite-plus: 1.4.0
+  "@vitest/coverage-v8": 5.0.5
+
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: "*"
+    vitest: "*"

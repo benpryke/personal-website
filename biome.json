@@ -85,7 +85,12 @@
         "useRegexLiterals": "error",
         "useSimpleNumberKeys": "error",
         "useSimplifiedLogicExpression": "error",
-        "useWhile": "error"
+        "useWhile": "error",
+        "noExcessiveNestedCallbacks": "error",
+        "noUnnecessaryTemplateExpression": "error",
+        "useArraySome": "error",
+        "useMathMinMax": "error",
+        "useRegexpTest": "error"
       },
       "correctness": {
         "noDuplicateArgumentNames": "error",
@@ -112,33 +117,16 @@
       },
       "nursery": {
         "noBaseToString": "error",
-        "noConditionalExpect": "error",
-        "noDuplicateSelectors": "error",
-        "noExcessiveNestedCallbacks": "error",
         "noExtendNative": "error",
         "noFloatingPromises": "error",
-        "noIdenticalTestTitle": "error",
         "noInvalidPropertyInitValue": "error",
-        "noJsxLeakedDollar": "error",
-        "noLoopFunc": "error",
         "noMisleadingReturnType": "error",
         "noMisusedPromises": "error",
         "noNegationInEqualityCheck": "error",
-        "noUnnecessaryTemplateExpression": "error",
         "noUnsafePlusOperands": "error",
-        "noUntrustedLicenses": "error",
         "noUselessTypeConversion": "error",
-        "useArraySome": "error",
         "useAwaitThenable": "error",
-        "useConsistentTestIt": "error",
-        "useDomNodeTextContent": "error",
-        "useDomQuerySelector": "error",
-        "useExpect": "error",
-        "useIframeSandbox": "error",
-        "useImportsFirst": "error",
         "useIncludes": "error",
-        "useMathMinMax": "error",
-        "useNamedCaptureGroup": "error",
         "useNullishCoalescing": {
           "level": "error",
           "options": {
@@ -148,12 +136,8 @@
           }
         },
         "useReactCompiler": "error",
-        "useReduceTypeParameter": "error",
         "useRegexpExec": "error",
-        "useRegexpTest": "error",
-        "useStringStartsEndsWith": "error",
-        "useTestHooksInOrder": "error",
-        "useTestHooksOnTop": "error"
+        "useStringStartsEndsWith": "error"
       },
       "performance": {
         "noAccumulatingSpread": "error",
@@ -166,10 +150,12 @@
         "noSyncScripts": "error",
         "noUnwantedPolyfillio": "error",
         "useGoogleFontPreconnect": "error",
-        "useTopLevelRegex": "error"
+        "useTopLevelRegex": "error",
+        "useDomNodeTextContent": "error"
       },
       "security": {
-        "noSecrets": "error"
+        "noSecrets": "error",
+        "useIframeSandbox": "error"
       },
       "style": {
         "noCommonJs": "error",
@@ -252,7 +238,14 @@
         "useThrowNewError": "error",
         "useThrowOnlyError": "error",
         "useTrimStartEnd": "error",
-        "useUnifiedTypeSignatures": "error"
+        "useUnifiedTypeSignatures": "error",
+        "useConsistentTestIt": "error",
+        "useDomQuerySelector": "error",
+        "useImportsFirst": "error",
+        "useNamedCaptureGroup": "error",
+        "useReduceTypeParameter": "error",
+        "useTestHooksInOrder": "error",
+        "useTestHooksOnTop": "error"
       },
       "suspicious": {
         "noAlert": "error",
@@ -328,7 +321,14 @@
         "useIsArray": "error",
         "useNumberToFixedDigitsArgument": "error",
         "useStaticResponseMethods": "error",
-        "useStrictMode": "error"
+        "useStrictMode": "error",
+        "noConditionalExpect": "error",
+        "noDuplicateSelectors": "error",
+        "noIdenticalTestTitle": "error",
+        "noJsxLeakedDollar": "error",
+        "noLoopFunc": "error",
+        "noUntrustedLicenses": "error",
+        "useExpect": "error"
       }
     }
   },
@@ -338,8 +338,21 @@
         "**/__tests__/**",
         "**/*.test.ts",
         "**/*.test.tsx",
-        "src/test/**"
+        "src/test/**",
+        "src/setupTests.js"
       ],
+      "javascript": {
+        "globals": [
+          "afterAll",
+          "afterEach",
+          "beforeAll",
+          "beforeEach",
+          "describe",
+          "expect",
+          "it",
+          "vi"
+        ]
+      },
       "linter": {
         "rules": {
           "performance": {

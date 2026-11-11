@@ -31,10 +31,14 @@ export const Footer: React.FC<FooterProps> = ({
         {socials.map(({ name, url, icon }) => (
           <li key={name}>
             <a href={url}>
-              <FontAwesomeIcon icon={icon} fixedWidth={true} />
+              <FontAwesomeIcon icon={icon} />
               <span>{name}</span>
               <span className="footer-url">{displayUrl(url)}</span>
-              <FontAwesomeIcon icon={faArrowRight} className="footer-arrow" />
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                widthAuto={true}
+                className="footer-arrow"
+              />
             </a>
           </li>
         ))}

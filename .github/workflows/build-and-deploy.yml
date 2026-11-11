@@ -7,66 +7,38 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: "22"
+          persist-credentials: false
 
-      - name: Set up environment for Puppeteer
-        shell: bash
-        run: |
-          sudo apt-get update
-          sudo apt-get install -yq chromium-browser gconf-service libasound2 libatk1.0-0 libc6 libcairo2 \
-            libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libgconf-2-4 \
-            libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 \
-            libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 \
-            libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
-            libxss1 libxtst6 ca-certificates fonts-liberation libnss3 lsb-release \
-            xdg-utils wget libxshmfence1 libatk-bridge2.0-0
-
-      - name: Add react-snap Puppeteer configuration
-        uses: jaywcjlove/github-action-package@main
+      # Installs Vite+, the Node version in .node-version and the pnpm version
+      # in package.json, then the dependencies
+      - name: Set up Vite+
+        uses: voidzero-dev/setup-vp@cab1ab9eaff52d4857875f4f2c016e36af8f2c76 # v1.22.0
         with:
-          path: package.json
-          data: |
-            {
-              "reactSnap": {
-                "source": "dist",
-                "puppeteerArgs": [
-                  "--no-sandbox",
-                  "--disable-setuid-sandbox",
-                  "--disable-dev-shm-usage",
-                  "--single-process"
-                ]}
-            }
-
-      - name: Install Dependencies
-        run: yarn install
+          cache: true
 
       - name: Lint
-        run: yarn biome ci .
+        run: vp exec biome ci .
 
       - name: Typecheck
-        run: yarn typecheck
+        run: vp run typecheck
 
       - name: Test
-        run: yarn test
+        run: vp run test
 
+      # Prerendering drives the runner image's Google Chrome
       - name: Build
-        run: yarn build
+        run: vp run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
           branch: master
           folder: dist

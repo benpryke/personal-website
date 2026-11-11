@@ -163,7 +163,6 @@
     font-size: 0.875rem;
     color: var(--muted);
 
-    /* biome-ignore lint/style/noDescendingSpecificity: matches the stage's Visit link, never the item title links above */
     > a {
       display: inline-flex;
       align-items: center;

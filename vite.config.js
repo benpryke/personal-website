@@ -1,7 +1,7 @@
 import postcssGlobalData from "@csstools/postcss-global-data"
 import react from "@vitejs/plugin-react"
 import postcssCustomMedia from "postcss-custom-media"
-import { defineConfig } from "vitest/config"
+import { defineConfig, lazyPlugins } from "vite-plus"
 
 export default defineConfig({
   base: "/",
@@ -22,5 +22,5 @@ export default defineConfig({
     css: true,
     reporters: ["verbose"],
   },
-  plugins: [react()],
+  plugins: lazyPlugins(() => [react()]),
 })

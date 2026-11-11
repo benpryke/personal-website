@@ -101,10 +101,10 @@ describe("Nav", () => {
       "href",
       "#top",
     )
-    expect(screen.getByRole("link", { name: "Writing" })).toHaveAttribute(
-      "href",
-      "#writing",
-    )
+    // Section links are hidden below the small breakpoint, which jsdom doesn't evaluate
+    expect(
+      screen.getByRole("link", { name: "Writing", hidden: true }),
+    ).toHaveAttribute("href", "#writing")
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
       "href",
       "#contact",
