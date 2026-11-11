@@ -33,7 +33,6 @@ jobs:
       - name: Test
         run: vp run test
 
-      # Prerendering drives the runner image's Google Chrome
       - name: Build
         run: vp run build
 

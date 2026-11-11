@@ -12,10 +12,8 @@ pnpm start       # dev server
 pnpm test        # unit tests
 pnpm lint        # Biome
 pnpm typecheck
-pnpm build       # build to dist/, then prerender with react-snap
+pnpm build       # build to dist/, then prerender index.html with React
 ```
-
-Prerendering drives an installed Google Chrome. Set `CHROME_PATH` if Chrome isn't in its default location.
 
 ## Deployment configuration
 
