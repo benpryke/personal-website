@@ -36,7 +36,7 @@ export const App: React.FC = () => (
           </>
         }
         lead="Hello, I'm Ben Pryke, Senior Lead Engineer."
-        body="I build simple solutions to complex problems by working at the intersection of engineering and leadership. By connecting big ideas to project details, I strive to simplify implementations, polish user experiences, and uplift the people and technology around me."
+        body="I strive to build simple solutions to complex problems through the application of engineering and leadership. By connecting big ideas to project details, I evolve system designs, polish UX, and uplift the people around me."
         actions={
           <>
             <Button href={linkedIn.url}>Connect on LinkedIn</Button>
@@ -66,18 +66,18 @@ export const App: React.FC = () => (
         }
       >
         <p>
-          As writer of the world's most popular Jupyter Notebook tutorial since
-          2017, I am an expert in communicating technical concepts with a
-          variety of audiences. I confidently lead long-term, complex technical
-          deliveries, plan multi-stage projects, shape roadmaps, connect teams
-          and disciplines, and elevate my team.
+          As writer of the #1 article on Google since 2017 for the term "Jupyter
+          Notebook tutorial", I am an expert at communicating technical concepts
+          to a variety of audiences. I confidently lead long-term, complex
+          technical deliveries, plan multi-stage projects, shape roadmaps,
+          connect teams and disciplines, and elevate my team.
         </p>
         <p>
           After starting my career full stack with Python and AI, most of my
           recent experience is in the TypeScript/React ecosystem. I have been
-          writing code for well over two decades, have co-founded two
-          businesses, and have a decade of experience in high-performing FinTech
-          teams.
+          writing code for over 25 years, have co-founded two businesses, and
+          have a decade of greenfield experience in high-performing FinTech
+          teams in both the start-up and banking environments.
         </p>
         <p>
           I'm working towards roles like Executive Director, Head of
