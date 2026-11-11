@@ -1,18 +1,17 @@
-import "./button.css";
+import "./button.css"
 
-import React from "react";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import type React from "react"
 
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-export interface ButtonProps {
-  href: string;
-  children: React.ReactNode;
+export type ButtonProps = {
+  href: string
+  children: React.ReactNode
   /** Solid ink pill (primary) or outlined pill (secondary) */
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary"
   /** Leading icon; primary buttons get a trailing arrow instead */
-  icon?: IconDefinition;
+  icon?: IconDefinition
 }
 
 /**
@@ -25,10 +24,10 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
 }) => (
   <a href={href} className={`button button-${variant}`}>
-    {icon && <FontAwesomeIcon icon={icon} />}
+    {icon ? <FontAwesomeIcon icon={icon} /> : null}
     {children}
-    {variant === "primary" && (
+    {variant === "primary" ? (
       <FontAwesomeIcon icon={faArrowRight} className="button-arrow" />
-    )}
+    ) : null}
   </a>
-);
+)

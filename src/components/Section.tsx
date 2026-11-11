@@ -1,18 +1,18 @@
-import "./section.css";
+import "./section.css"
 
-import React from "react";
+import type React from "react"
 
-import { cx } from "../utils";
+import { cx } from "../utils"
 
-export interface SectionProps {
-  id?: string;
+export type SectionProps = {
+  id?: string
   /** Heading; wrap a word in <em> to accent it */
-  title: React.ReactNode;
+  title: React.ReactNode
   /** Tinted band with hairline borders */
-  tinted?: boolean;
+  tinted?: boolean
   /** Constrain content to a reading column */
-  prose?: boolean;
-  children: React.ReactNode;
+  prose?: boolean
+  children: React.ReactNode
 }
 
 /**
@@ -27,11 +27,15 @@ export const Section: React.FC<SectionProps> = ({
 }) => (
   <section
     id={id}
-    className={cx("section", tinted && "section-tinted", prose && "section-prose")}
+    className={cx(
+      "section",
+      tinted && "section-tinted",
+      prose && "section-prose",
+    )}
   >
     <div className="section-inner">
       <h2 className="section-title">{title}</h2>
       {children}
     </div>
   </section>
-);
+)

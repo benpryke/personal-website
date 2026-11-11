@@ -1,11 +1,11 @@
-import "./logos.css";
+import "./logos.css"
 
-import React from "react";
+import type React from "react"
 
-import type { Logo } from "../content";
+import type { Logo } from "../content"
 
-export interface LogosProps {
-  logos: Logo[];
+export type LogosProps = {
+  logos: Logo[]
 }
 
 /**
@@ -21,4 +21,4 @@ export const Logos: React.FC<LogosProps> = ({ logos }) => (
       </li>
     ))}
   </ul>
-);
+)

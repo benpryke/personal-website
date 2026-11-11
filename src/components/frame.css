@@ -10,8 +10,7 @@
   background:
     radial-gradient(60% 70% at 12% 8%, var(--g1), transparent 70%),
     radial-gradient(55% 60% at 92% 12%, var(--g3), transparent 70%),
-    radial-gradient(70% 70% at 60% 105%, var(--g2), transparent 70%),
-    #f3f2ee;
+    radial-gradient(70% 70% at 60% 105%, var(--g2), transparent 70%), #f3f2ee;
   transition:
     --g1 0.9s ease,
     --g2 0.9s ease,
@@ -69,7 +68,7 @@
   gap: 0.75rem;
   padding: 0.7rem 1rem;
   border-bottom: 1px solid var(--line);
-  font: 0.8125rem/1 var(--font-mono);
+  font: 0.8125rem / 1 var(--font-mono);
   color: var(--muted);
 }
 
@@ -80,7 +79,12 @@
   flex: none;
   width: calc(2 * var(--step) + var(--dot));
   height: var(--dot);
-  background: radial-gradient(circle, #d4d4d8 calc(var(--dot) / 2), transparent calc(var(--dot) / 2 + 0.02rem))
+  background:
+    radial-gradient(
+      circle,
+      #d4d4d8 calc(var(--dot) / 2),
+      transparent calc(var(--dot) / 2 + 0.02rem)
+    )
     calc((var(--dot) - var(--step)) / 2) 0 / var(--step) var(--dot) repeat-x;
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-gb">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="/assets/favicon.ico"/>
@@ -18,9 +18,10 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXW9QDPKF5"></script>
-    <script>
+    <script>"use strict";
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      // biome-ignore lint/complexity/noArguments: gtag.js requires the arguments object itself, not an array
+      function gtag(){window.dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-BXW9QDPKF5');
     </script>

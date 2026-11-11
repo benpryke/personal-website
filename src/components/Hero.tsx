@@ -1,20 +1,20 @@
-import "./hero.css";
+import "./hero.css"
 
-import React from "react";
+import type React from "react"
 
-import { Frame } from "./Frame";
+import { Frame } from "./Frame"
 
-export interface HeroProps {
+export type HeroProps = {
   /** Headline; wrap a word in <em> to accent it */
-  title: React.ReactNode;
-  lead: string;
-  body: string;
+  title: React.ReactNode
+  lead: string
+  body: string
   /** Call-to-action buttons */
-  actions: React.ReactNode;
-  headshot: string;
-  name: string;
+  actions: React.ReactNode
+  headshot: string
+  name: string
   /** Short facts pinned beside the headshot */
-  facts: string[];
+  facts: string[]
 }
 
 /**
@@ -29,6 +29,7 @@ export const Hero: React.FC<HeroProps> = ({
   name,
   facts,
 }) => (
+  // biome-ignore lint/correctness/useUniqueElementIds: in-page link target, so the id must be static
   <section className="hero" id="top">
     <h1>{title}</h1>
     <div className="hero-grid">
@@ -49,4 +50,4 @@ export const Hero: React.FC<HeroProps> = ({
       </Frame>
     </div>
   </section>
-);
+)

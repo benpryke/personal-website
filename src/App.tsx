@@ -1,15 +1,22 @@
-import React from "react";
+import type React from "react"
 
-import { Button } from "./components/Button";
-import { Footer } from "./components/Footer";
-import { Hero } from "./components/Hero";
-import { Logos } from "./components/Logos";
-import { Nav } from "./components/Nav";
-import { ScrollShowcase } from "./components/ScrollShowcase";
-import { Section } from "./components/Section";
-import { articles, headshot, logos, navLinks, projects, socials } from "./content";
+import { Button } from "./components/Button"
+import { Footer } from "./components/Footer"
+import { Hero } from "./components/Hero"
+import { Logos } from "./components/Logos"
+import { Nav } from "./components/Nav"
+import { ScrollShowcase } from "./components/ScrollShowcase"
+import { Section } from "./components/Section"
+import {
+  articles,
+  headshot,
+  logos,
+  navLinks,
+  projects,
+  socials,
+} from "./content"
 
-const { linkedIn, gitHub } = socials;
+const { linkedIn, gitHub } = socials
 
 export const App: React.FC = () => (
   <>
@@ -40,13 +47,18 @@ export const App: React.FC = () => (
         }
         headshot={headshot}
         name="Benjamin Pryke"
-        facts={["Lifelong Programmer", "Double co-founder", "#1 on Google for 10 years"]}
+        facts={[
+          "Lifelong Programmer",
+          "Double co-founder",
+          "#1 on Google for 10 years",
+        ]}
       />
 
+      {/* biome-ignore lint/correctness/useUniqueElementIds: in-page link target, so the id must be static */}
       <Section
         id="about"
-        prose
-        tinted
+        prose={true}
+        tinted={true}
         title={
           <>
             Technology is about <em>people</em> first and code second.
@@ -55,25 +67,31 @@ export const App: React.FC = () => (
       >
         <p>
           As writer of the world's most popular Jupyter Notebook tutorial since
-          2017, I am an expert in communicating technical concepts with
-          a variety of audiences. I confidently lead long-term, complex technical
-          deliveries, plan multi-stage projects, shape roadmaps, connect teams and
-          disciplines, and elevate my team.
+          2017, I am an expert in communicating technical concepts with a
+          variety of audiences. I confidently lead long-term, complex technical
+          deliveries, plan multi-stage projects, shape roadmaps, connect teams
+          and disciplines, and elevate my team.
         </p>
         <p>
-          After starting my career full stack with Python and AI, most of my recent
-          experience is in the TypeScript/React ecosystem. I have been writing code
-          for well over two decades, have co-founded two businesses, and have a decade
-          of experience in high-performing FinTech teams.
+          After starting my career full stack with Python and AI, most of my
+          recent experience is in the TypeScript/React ecosystem. I have been
+          writing code for well over two decades, have co-founded two
+          businesses, and have a decade of experience in high-performing FinTech
+          teams.
         </p>
-        <p>I'm working towards roles like Executive Director, Head of Engineering, CTO.</p>
+        <p>
+          I'm working towards roles like Executive Director, Head of
+          Engineering, CTO.
+        </p>
       </Section>
 
+      {/* biome-ignore lint/correctness/useUniqueElementIds: in-page link target, so the id must be static */}
       <Section id="projects" title="Recent projects.">
         <ScrollShowcase items={projects} />
       </Section>
 
-      <Section id="writing" title="Published articles." tinted>
+      {/* biome-ignore lint/correctness/useUniqueElementIds: in-page link target, so the id must be static */}
+      <Section id="writing" title="Published articles." tinted={true}>
         <ScrollShowcase items={articles} tone={2} />
       </Section>
 
@@ -85,7 +103,10 @@ export const App: React.FC = () => (
       fullName="Benjamin Pryke"
       title="Let's continue the conversation."
       socials={Object.values(socials)}
-      quote={{ text: "The biggest risk is in not taking the adventure.", author: "Brian Blessed" }}
+      quote={{
+        text: "The biggest risk is in not taking the adventure.",
+        author: "Brian Blessed",
+      }}
     />
   </>
-);
+)

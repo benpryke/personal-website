@@ -1,29 +1,30 @@
-import "./nav.css";
+import "./nav.css"
 
-import React, { useEffect, useState } from "react";
+import type React from "react"
+import { useEffect, useState } from "react"
 
-import type { Link } from "../content";
-import { cx } from "../utils";
-import { Button } from "./Button";
+import type { Link } from "../content"
+import { cx } from "../utils"
+import { Button } from "./Button"
 
-export interface NavProps {
-  name: string;
-  links: Link[];
-  cta: Link;
+export type NavProps = {
+  name: string
+  links: Link[]
+  cta: Link
 }
 
 /**
  * Fixed top navigation that condenses into a floating pill once scrolled
  */
 export const Nav: React.FC<NavProps> = ({ name, links, cta }) => {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 8);
-    update();
-    document.addEventListener("scroll", update, { passive: true });
-    return () => document.removeEventListener("scroll", update);
-  }, []);
+    const update = () => setScrolled(window.scrollY > 8)
+    update()
+    document.addEventListener("scroll", update, { passive: true })
+    return () => document.removeEventListener("scroll", update)
+  }, [])
 
   return (
     <header className={cx("nav", scrolled && "nav-scrolled")}>
@@ -42,5 +43,5 @@ export const Nav: React.FC<NavProps> = ({ name, links, cta }) => {
         <Button href={cta.url}>{cta.name}</Button>
       </nav>
     </header>
-  );
-};
+  )
+}

@@ -42,7 +42,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font: 600 1.0625rem/1 var(--font-display);
+  font: 600 1.0625rem / 1 var(--font-display);
   letter-spacing: -0.02em;
   color: var(--ink);
   text-decoration: none;

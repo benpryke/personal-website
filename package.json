@@ -10,7 +10,11 @@
     "postbuild": "yarn prerender",
     "preview": "vite preview",
     "prerender": "react-snap",
-    "predeploy": "yarn test && yarn build",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "predeploy": "yarn lint && yarn typecheck && yarn test && yarn build",
     "deploy": "gh-pages -b master -d dist -r https://github.com/benpryke/benpryke.github.io.git",
     "test": "vitest --watch=false",
     "test:watch": "vitest",
@@ -27,6 +31,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.8",
     "@csstools/postcss-global-data": "^3.0.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -40,7 +45,6 @@
     "gh-pages": "^6.3.0",
     "jsdom": "^26.0.0",
     "postcss-custom-media": "^11.0.5",
-    "prettier": "^3.4.2",
     "pretty": "^2.0.0",
     "react-snap": "^1.23.0",
     "typescript": "^5.7.2",
@@ -50,12 +54,6 @@
   "resolutions": {
     "puppeteer": "^13"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    "defaults"
-  ],
   "reactSnap": {
     "source": "dist"
   }

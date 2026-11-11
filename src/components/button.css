@@ -5,7 +5,7 @@
   min-height: 2.75rem;
   padding: 0 1.25rem;
   border-radius: 999px;
-  font: 500 0.9375rem/1 var(--font-body);
+  font: 500 0.9375rem / 1 var(--font-body);
   text-decoration: none;
   white-space: nowrap;
   transition:

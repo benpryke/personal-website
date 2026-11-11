@@ -1,8 +1,7 @@
-import postcssCustomMedia from "postcss-custom-media";
-import { defineConfig } from "vitest/config";
-
-import postcssGlobalData from "@csstools/postcss-global-data";
-import react from "@vitejs/plugin-react";
+import postcssGlobalData from "@csstools/postcss-global-data"
+import react from "@vitejs/plugin-react"
+import postcssCustomMedia from "postcss-custom-media"
+import { defineConfig } from "vitest/config"
 
 export default defineConfig({
   base: "/",
@@ -24,4 +23,4 @@ export default defineConfig({
     reporters: ["verbose"],
   },
   plugins: [react()],
-});
+})

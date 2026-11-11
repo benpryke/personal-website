@@ -1,27 +1,15 @@
-import "./scroll-showcase.css";
+import "./scroll-showcase.css"
 
-import React, { useEffect, useRef, useState } from "react";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import type React from "react"
+import { useEffect, useRef, useState } from "react"
 
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { ShowcaseItem } from "../content"
+import { cx, displayUrl } from "../utils"
+import { Frame } from "./Frame"
 
-import type { ShowcaseItem } from "../content";
-import { cx, displayUrl } from "../utils";
-import { Frame } from "./Frame";
-
-/** Items become active as they cross this band around the viewport's centre */
-export const ACTIVE_BAND = "-45% 0px -54% 0px";
-
-/** Share of an item that must be visible before it fades in on narrow screens */
-export const REVEAL_THRESHOLD = 0.1;
-
-export interface ScrollShowcaseProps {
-  items: ShowcaseItem[];
-  /** Gradient tone of the first item; later items step through the tones */
-  tone?: number;
-}
-
-type Refs = React.MutableRefObject<(HTMLElement | null)[]>;
+type Refs = React.MutableRefObject<(HTMLElement | null)[]>
 
 /**
  * Calls `onEnter` with an element's index whenever it starts intersecting
@@ -29,23 +17,38 @@ type Refs = React.MutableRefObject<(HTMLElement | null)[]>;
 const useIntersection = (
   refs: Refs,
   options: IntersectionObserverInit,
-  onEnter: (index: number) => void
+  onEnter: (index: number) => void,
 ) =>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: observe once on mount; callers pass static options and setter-only callbacks
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach(
-          (entry) =>
-            entry.isIntersecting && onEnter(refs.current.indexOf(entry.target as HTMLElement))
-        ),
-      options
-    );
-    refs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          onEnter(refs.current.indexOf(entry.target as HTMLElement))
+        }
+      }
+    }, options)
+    for (const el of refs.current) {
+      if (el) {
+        observer.observe(el)
+      }
+    }
+    return () => observer.disconnect()
+  }, [])
 
-const pad = (n: number) => String(n).padStart(2, "0");
+const pad = (n: number) => String(n).padStart(2, "0")
+
+/** Items become active as they cross this band around the viewport's centre */
+export const ACTIVE_BAND = "-45% 0px -54% 0px"
+
+/** Share of an item that must be visible before it fades in on narrow screens */
+export const REVEAL_THRESHOLD = 0.1
+
+export type ScrollShowcaseProps = {
+  items: ShowcaseItem[]
+  /** Gradient tone of the first item; later items step through the tones */
+  tone?: number
+}
 
 /**
  * A list of items scrolling past a sticky frame whose image crossfades to
@@ -56,17 +59,17 @@ export const ScrollShowcase: React.FC<ScrollShowcaseProps> = ({
   items,
   tone = 0,
 }) => {
-  const refs: Refs = useRef([]);
-  const [active, setActive] = useState(0);
+  const refs: Refs = useRef([])
+  const [active, setActive] = useState(0)
   // Items fade in once, in order, as they're scrolled to
-  const [revealed, setRevealed] = useState(-1);
+  const [revealed, setRevealed] = useState(-1)
 
-  useIntersection(refs, { rootMargin: ACTIVE_BAND }, setActive);
+  useIntersection(refs, { rootMargin: ACTIVE_BAND }, setActive)
   useIntersection(refs, { threshold: REVEAL_THRESHOLD }, (i) =>
-    setRevealed((r) => Math.max(r, i))
-  );
+    setRevealed((r) => Math.max(r, i)),
+  )
 
-  const current = items[active];
+  const current = items[active]
 
   return (
     <div className="showcase">
@@ -75,15 +78,19 @@ export const ScrollShowcase: React.FC<ScrollShowcaseProps> = ({
           <li
             key={item.url}
             ref={(el) => {
-              refs.current[i] = el;
+              refs.current[i] = el
             }}
             className={cx(
               "showcase-item",
               i === active && "is-active",
-              i <= revealed && "is-revealed"
+              i <= revealed && "is-revealed",
             )}
           >
-            <Frame tone={tone + i} title={displayUrl(item.url)} className="showcase-inline">
+            <Frame
+              tone={tone + i}
+              title={displayUrl(item.url)}
+              className="showcase-inline"
+            >
               <img src={item.image} alt="" loading="lazy" />
             </Frame>
             <h3>
@@ -92,19 +99,25 @@ export const ScrollShowcase: React.FC<ScrollShowcaseProps> = ({
             {item.paragraphs.map((text) => (
               <p key={text}>{text}</p>
             ))}
-            {item.tags && (
+            {item.tags ? (
               <ul className="showcase-tags" aria-label="Key tech">
                 {item.tags.map((tag) => (
                   <li key={tag}>{tag}</li>
                 ))}
               </ul>
-            )}
+            ) : null}
           </li>
         ))}
       </ol>
 
       <div className="showcase-stage">
-        <a href={current.url} className="showcase-link" tabIndex={-1} aria-hidden="true">
+        {/* biome-ignore lint/a11y/useAnchorContent: decorative duplicate of the "Visit" link below, hidden from assistive tech and the tab order */}
+        <a
+          href={current.url}
+          className="showcase-link"
+          tabIndex={-1}
+          aria-hidden="true"
+        >
           <Frame tone={tone + active} title={displayUrl(current.url)}>
             {items.map((item, i) => (
               <img
@@ -130,7 +143,9 @@ export const ScrollShowcase: React.FC<ScrollShowcaseProps> = ({
                 aria-label={`Show ${item.name}`}
                 aria-current={i === active}
                 className={cx(i === active && "is-active")}
-                onClick={() => refs.current[i]?.scrollIntoView({ block: "center" })}
+                onClick={() =>
+                  refs.current[i]?.scrollIntoView({ block: "center" })
+                }
               />
             ))}
             <span>{`${pad(active + 1)} / ${pad(items.length)}`}</span>
@@ -138,5 +153,5 @@ export const ScrollShowcase: React.FC<ScrollShowcaseProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

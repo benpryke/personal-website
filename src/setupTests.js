@@ -1,26 +1,26 @@
-import { vi } from "vitest";
-import "@testing-library/jest-dom/vitest";
+import { vi } from "vitest"
+import "@testing-library/jest-dom/vitest"
 
 // Filter CSS parse errors from test output
-const consoleErrorFn = console.error;
+const consoleErrorFn = console.error
 console.error = (...data) => {
   if (
     typeof data[0]?.toString === "function" &&
     data[0].toString().includes("Error: Could not parse CSS stylesheet")
   ) {
-    return;
+    return
   }
 
-  consoleErrorFn(...data);
-};
+  consoleErrorFn(...data)
+}
 
 // IntersectionObserver isn't available in test environment
 beforeEach(() => {
-  const mockIntersectionObserver = vi.fn();
+  const mockIntersectionObserver = vi.fn()
   mockIntersectionObserver.mockReturnValue({
     observe: () => null,
     unobserve: () => null,
     disconnect: () => null,
-  });
-  window.IntersectionObserver = mockIntersectionObserver;
-});
+  })
+  window.IntersectionObserver = mockIntersectionObserver
+})

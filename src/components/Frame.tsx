@@ -1,18 +1,18 @@
-import "./frame.css";
+import "./frame.css"
 
-import React from "react";
+import type React from "react"
 
-import { cx } from "../utils";
+import { cx } from "../utils"
 
-export const TONES = 4;
+export const TONES = 4
 
-export interface FrameProps {
+export type FrameProps = {
   /** Gradient tone; wraps around the available tones */
-  tone: number;
+  tone: number
   /** When set, children sit in a window card with this title bar */
-  title?: string;
-  className?: string;
-  children: React.ReactNode;
+  title?: string
+  className?: string
+  children: React.ReactNode
 }
 
 /**
@@ -37,4 +37,4 @@ export const Frame: React.FC<FrameProps> = ({
       </div>
     )}
   </div>
-);
+)

@@ -19,6 +19,7 @@ html {
   *,
   *::before,
   *::after {
+    /* biome-ignore lint/complexity/noImportantStyles: reduced motion must override every component transition */
     transition-duration: 0.01ms !important;
   }
 }
@@ -27,7 +28,7 @@ body {
   margin: 0;
   background: var(--surface);
   color: var(--text);
-  font: 400 1rem/1.65 var(--font-body);
+  font: 400 1rem / 1.65 var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-anchor: none;
